@@ -69,7 +69,7 @@ function GanttChart() {
     <div>
       <h1>Gantt Chart</h1>
       {loading && <div>Loading...</div>}
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {error && <div style={{ color: 'purple' }}>{error}</div>}
       {!loading && tasks.length > 0 && (
         <Gantt
           tasks={tasks}
