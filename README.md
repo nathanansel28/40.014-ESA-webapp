@@ -20,7 +20,7 @@ There are two parts to this: Front-end and Back-end, hence, you will need to run
 
 2. In the server directory, run `env\Scripts\activate`
 
-3. Virtual env (env) should be created. Run `uvicorn main:app --reload`
+3. Virtual env (env) should be created. Run `python -m uvicorn main:app --reload`
 
 Uvicorn should be running on [http://127.0.0.1:8000]
 
