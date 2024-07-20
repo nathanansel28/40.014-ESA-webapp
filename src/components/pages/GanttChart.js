@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Gantt, ViewMode } from 'gantt-task-react';
 import 'gantt-task-react/dist/index.css';
 import Papa from 'papaparse';
+import './GanttChart.css'; // Import the custom CSS file
 
 function GanttChart() {
   const [tasks, setTasks] = useState([]);
@@ -66,14 +67,15 @@ function GanttChart() {
   }, []);
 
   return (
-    <div>
+    <div className="gantt-chart-container">
       <h1>Gantt Chart</h1>
       {loading && <div>Loading...</div>}
-      {error && <div style={{ color: 'purple' }}>{error}</div>}
+      {error && <div className="error-message">{error}</div>}
       {!loading && tasks.length > 0 && (
         <Gantt
           tasks={tasks}
           viewMode={ViewMode.Month}
+          style={{ backgroundColor: '#2E2E2E', color: '#FFFFFF' }}
         />
       )}
       {!loading && tasks.length === 0 && (

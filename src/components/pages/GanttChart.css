@@ -1,0 +1,96 @@
+/* General container styles */
+.gantt-chart-container {
+    background-color: transparent !important; /* No fill (transparent) */
+    color: #000000; /* White text color */
+    padding: 20px;
+}
+  
+  /* Error message */
+  .gantt-chart-container .error-message {
+    color: #ff0000; /* Bright red color */
+  }
+  
+  /* Task bar styles */
+  .gantt-chart-container .react-gantt-task-bar {
+    background-color: #9370DB !important; /* Light purple shade for tasks */
+  }
+  
+  .gantt-chart-container .react-gantt-task-bar-inner {
+    background-color: #9370DB !important; /* Light purple shade for tasks */
+  }
+  
+  /* Table header and cell styles */
+  .gantt-chart-container .react-gantt-task-table th,
+  .gantt-chart-container .react-gantt-task-table td {
+    background-color: #4B0082 !important; /* Dark purple for table headers and cells */
+    color: #FFFFFF !important; /* White text color */
+  }
+  
+  /* Background for the task list */
+  .gantt-chart-container .react-gantt-task-table {
+    background-color: #4B0082 !important; /* Dark purple shade */
+  }
+  
+  /* Adjusting the task list header and table */
+  .gantt-chart-container .react-gantt-task-header, 
+  .gantt-chart-container .react-gantt-task-list-container {
+    background-color: #4B0082 !important; /* Dark purple for first three columns */
+    color: #FFFFFF !important; /* White text color */
+  }
+  
+  /* Setting solid color for rows */
+  .gantt-chart-container .react-gantt-task-list-container tr {
+    background-color: #4B0082 !important; /* Dark purple shade for all rows */
+  }
+  
+  /* Adjusting the even and odd rows to have the same background */
+  .gantt-chart-container .react-gantt-task-list-container tr:nth-child(even),
+  .gantt-chart-container .react-gantt-task-list-container tr:nth-child(odd) {
+    background-color: #4B0082 !important; /* Dark purple shade for all rows */
+  }
+  
+  
+  /* Error message */
+  .gantt-chart-container .error-message {
+    color: #ff0000; /* Dark purple color */
+  }
+  
+  /* Task bar styles */
+  .gantt-chart-container .react-gantt-task-bar {
+    background-color: #9370DB !important; /* Light purple shade for tasks */
+  }
+  
+  .gantt-chart-container .react-gantt-task-bar-inner {
+    background-color: #9370DB !important; /* Light purple shade for tasks */
+  }
+  
+  /* Table header and cell styles */
+  .gantt-chart-container .react-gantt-task-table th,
+  .gantt-chart-container .react-gantt-task-table td {
+    background-color: #4B0082 !important; /* Dark purple for table headers and cells */
+    color: #FFFFFF !important; /* White text color */
+  }
+  
+  /* Background for the task list */
+  .gantt-chart-container .react-gantt-task-table {
+    background-color: #4B0082 !important; /* Dark purple shade */
+  }
+  
+  /* Adjusting the task list header and table */
+  .gantt-chart-container .react-gantt-task-header, 
+  .gantt-chart-container .react-gantt-task-list-container {
+    background-color: #4B0082 !important; /* Dark purple for first three columns */
+    color: #FFFFFF !important; /* White text color */
+  }
+  
+  /* Setting solid color for rows */
+  .gantt-chart-container .react-gantt-task-list-container tr {
+    background-color: #4B0082 !important; /* Dark purple shade for all rows */
+  }
+  
+  /* Adjusting the even and odd rows to have the same background */
+  .gantt-chart-container .react-gantt-task-list-container tr:nth-child(even),
+  .gantt-chart-container .react-gantt-task-list-container tr:nth-child(odd) {
+    background-color: #4B0082 !important; /* Dark purple shade for all rows */
+  }
+  
