@@ -8,7 +8,12 @@ This project was built using these technologies.
 
 ## Getting Started
 
-Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
+Clone down this repository. You will need `node.js` and `git` installed globally on your machine. You would also need `Uvicorn`,  `FastApi` and  `Pandas` module installed.
+
+In the event you need to download any of the above three modules, do:
+1.  `pip install pandas` and/or
+2.  `pip install fastapi` and/or
+3.  `pip install uvicorn` 
 
 ## 🛠 Installation and Setup Instructions
 
