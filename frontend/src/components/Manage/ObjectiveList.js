@@ -1,19 +1,31 @@
-import React from 'react'
+import * as React from 'react';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
+export default function ObjectiveList() {
+  const [value, setValue] = React.useState('female');
 
-const objectives = ["1","2","3","4"]
-const ObjectiveList = () => {
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
-    <div>
-         {objectives.map((objective, index) => (
-            <div key={index} className="objective_block">
-                <input type="radio" name="objective" className="objective_button"/>
-                <label className="objective_text">Objective: {objective}</label>
-            </div>
-        ))}
-    </div>
-  )
+    <FormControl>
+      <FormLabel id="demo-controlled-radio-buttons-group">Objectives</FormLabel>
+      <RadioGroup
+        aria-labelledby="demo-controlled-radio-buttons-group"
+        name="controlled-radio-buttons-group"
+        value={value}
+        onChange={handleChange}
+      >
+        <FormControlLabel value="Makespan" control={<Radio />} label="Minimise Makespan" />
+        <FormControlLabel value="Cost" control={<Radio />} label="Minimise WIP Holding Costs" />
+        <FormControlLabel value="Runtime" control={<Radio />} label="Minimise Runtime" />
+        <FormControlLabel value="Tardiness" control={<Radio />} label="Minimise Tardiness" />
+      </RadioGroup>
+    </FormControl>
+  );
 }
-
-
-export default ObjectiveList;

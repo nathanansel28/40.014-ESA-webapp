@@ -7,7 +7,7 @@ import axios from 'axios';
 import Papa from 'papaparse'; // CSV parsing library
 import { AiOutlineDelete } from "react-icons/ai";
 import { Button } from 'antd';
-import Objectives1 from './Objectives1';
+import ChooseBox from '../Manage/ChooseBox';
 
 
 function Manage() {
@@ -91,6 +91,14 @@ function Manage() {
             ))}
           </div>
         </Col>
+
+        <Container>
+          <Row>
+            <Col md={8} className="choose-box-section">
+              <ChooseBox/>
+            </Col>
+          </Row>
+        </Container>
 
         
       </Row>

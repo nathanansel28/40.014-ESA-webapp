@@ -633,3 +633,33 @@ button:focus {
   flex-direction: column;
   width: 100%;
 }
+
+/* ChooseBox */
+
+.ChooseBox {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.objective_main {
+  background: #ecf2fd;
+  padding: 0.8rem 1rem;
+  width: 25vw;
+  text-align: left;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.choose-box-section{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
