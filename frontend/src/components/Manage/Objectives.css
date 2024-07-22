@@ -1,0 +1,7 @@
+/* Objectives.css (or your preferred CSS file) */
+.ant-btn-primary:hover {
+    background-color: white;
+    opacity: 0.7; /* Adjust the opacity as desired */
+    border-color: white; /* Optional: Change border color too */
+  }
+  

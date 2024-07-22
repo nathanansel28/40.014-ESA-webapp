@@ -5,7 +5,7 @@ import './Gantt.css';
 
 function Gantt() {
   return (
-    <div>
+    <div className="gantt-container">
       <header className="gantt-header">
         <h1>Assembly Line Scheduling</h1>
       </header>
