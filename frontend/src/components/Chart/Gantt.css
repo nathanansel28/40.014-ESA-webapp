@@ -3,3 +3,14 @@
     color: white;
   }
   
+  /* Gantt.css (or your preferred CSS file) */
+.gantt-container {
+    margin-top: 20px; /* Adjust as needed */
+  }
+
+  /* Gantt.css (or your preferred CSS file) */
+.gantt-container {
+    position: relative;
+    top: 50px; /* Adjust as needed */
+  }
+  
