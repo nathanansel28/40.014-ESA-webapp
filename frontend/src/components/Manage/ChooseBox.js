@@ -5,7 +5,6 @@ import Header from '../Manage/Header';
 function ChooseBox() {
   return (
     <div className="ChooseBox">
-      <Header/>
       <Objectives/>
     </div>
   );
