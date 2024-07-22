@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.objective_main {
+  background: #ecf2fd;
+  padding: 0.8rem 1rem;
+  width: 30vw;
+  text-align: left;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}

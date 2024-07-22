@@ -11,7 +11,7 @@ function Home2() {
         <Row>
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              ABOUT <span className="purple"> GANNT. </span> 
+              ABOUT <span className="purple"> GANTT. </span> 
             </h1>
             <p className="home-about-body">
                 Our web application is designed to help manufacturing companies optimize their assembly line scheduling.
