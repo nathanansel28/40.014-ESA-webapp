@@ -18,7 +18,7 @@ export default function ObjectiveList() {
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={value}
+        value={value}gi
         onChange={handleChange}
       >
         <FormControlLabel value="Makespan" control={<Radio />} label="Minimise Makespan" />
