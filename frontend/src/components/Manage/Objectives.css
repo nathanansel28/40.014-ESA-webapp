@@ -4,4 +4,47 @@
     opacity: 0.7; /* Adjust the opacity as desired */
     border-color: white; /* Optional: Change border color too */
   }
+
+
+/* objectives */
+
+
+
+.objective_main {
+  text-align: left;
+  background: #fff !important;
+  padding: 2rem;
+  width: 24vw;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: #000000 !important;
+  opacity: 0.85;
+  color: #fff !important;
+}
+
+
+
+.objective_block {
+  background-color: #000;
+  border-radius:10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.objective_button {
+  margin-right: 10px;
+}
+
+.objective_text{
+  font-size: 20px;
+  color:#fff;
+}
+
+.objective_title{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
   
