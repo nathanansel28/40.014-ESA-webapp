@@ -1,5 +1,5 @@
-import React from 'react';
 import ObjectiveList from "./ObjectiveList";
+import { Button } from "antd";
 
 
 const Objectives = () => {
@@ -9,6 +9,9 @@ const Objectives = () => {
         <h className="objective_title">Choose one objective to prioritise!</h>
         <div className = "objective_title">    
                 <ObjectiveList/>
+                <Button type="primary">Submit</Button>
+                
+               
         </div>
     </div>    
 
