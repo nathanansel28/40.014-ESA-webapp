@@ -2,6 +2,7 @@
 import React from 'react';
 import ObjectiveList from './ObjectiveList';
 import './Objectives.css'; // Make sure the path is correct
+import { Button } from 'react-bootstrap';
 
 const Objectives = () => {
   return (
@@ -9,7 +10,7 @@ const Objectives = () => {
       <h className="objective_title">Choose one objective to prioritize!</h>
       <div className="objective_title">
         <ObjectiveList />
-        <Objectives type="primary">Submit</Objectives>
+        <Button type="primary">Submit</Button>
       </div>
     </div>
   );
