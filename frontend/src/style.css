@@ -456,6 +456,17 @@ button:focus {
   color: white !important;
   margin-top: 70px !important;
 }
+
+.table-container{
+  max-height: 400px;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.custom-table{
+  width: 100%;
+  white-space: nowrap;
+}
 /* Drag Drop File CSS */
 
 #form-file-upload{

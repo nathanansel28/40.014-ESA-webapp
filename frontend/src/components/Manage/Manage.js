@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import { Container, Col, Card, Form, Row } from 'react-bootstrap';
+import { Container, Col, Card, Form, Row,Table } from 'react-bootstrap';
 import Particle from '../Particle';
 import Gantt from '../Chart/Gantt';
 import UploadFile from './UploadFile'
@@ -40,79 +40,69 @@ function Manage() {
     }
   };
 
-  const handleCheckboxChange = (row) => {
-    setSelectedCards((prevSelectedCards) => {
-      if (prevSelectedCards.some((selectedRow) => selectedRow.operation === row.operation)) {
-        return prevSelectedCards.filter((selectedRow) => selectedRow.operation !== row.operation);
-      } else {
-        return [...prevSelectedCards, row];
-      }
-    });
-  };
+  // const handleCheckboxChange = (row) => {
+  //   setSelectedCards((prevSelectedCards) => {
+  //     if (prevSelectedCards.some((selectedRow) => selectedRow.operation === row.operation)) {
+  //       return prevSelectedCards.filter((selectedRow) => selectedRow.operation !== row.operation);
+  //     } else {
+  //       return [...prevSelectedCards, row];
+  //     }
+  //   });
+  // };
 
   return (
     <>
-      <Container fluid height>
-
-      <Row>
-        <Col xs={4}>
-        <div className="left-roundedge-section">
-            <Col className="drag-drop-section-manage">
-              <UploadFile onUploadSuccess={handleUploadSuccess} endpoint="http://127.0.0.1:8000/uploadfile/" />
-              <Particle />
-              <div style={{ maxHeight: '400px', overflowY: 'auto', marginTop: '20px' }}>
-                {csvData.length > 0 && csvData.map((row, index) => (
-                  <Card key={index} style={{ margin: '10px 0' }}>
-                    <Card.Body style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Card.Title style={{ margin: 0, color: '#000' }}>{row.operation}</Card.Title>
-                      <Form.Check
-                        type="checkbox"
-                        onChange={() => handleCheckboxChange(row)}
-                        checked={selectedCards.some((selectedRow) => selectedRow.operation === row.operation)}
-                      />
-                    </Card.Body>
-                  </Card>
-                ))}
-              </div>
+      <Container fluid>
+        <Row>
+          <Col xs={4}>
+            <div className="left-roundedge-section">
+              <Col className="drag-drop-section-manage">
+                <UploadFile onUploadSuccess={handleUploadSuccess} endpoint="http://127.0.0.1:8000/uploadfile/" />
+                <Particle />
+                <div className="table-container">
+                  {csvData.length > 0 && (
+                    <Table striped bordered hover className="custom-table">
+                      <thead>
+                        <tr>
+                          {Object.keys(csvData[0]).map((header, index) => (
+                            <th key={index}>{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {csvData.map((row, rowIndex) => (
+                          <tr key={rowIndex}>
+                            {Object.values(row).map((value, colIndex) => (
+                              <td key={colIndex}>{value}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  )}
+                </div>
+              </Col>
+            </div>
           </Col>
-          </div>
-          
-        </Col>
-
-        <Col className="right-gantt-chart" xs ={8}>
-        <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
-          <Gantt/>
-        </div>
-        </Col>
-
-
-        {/* <Col className="selected-cards-section" xs={8}>
-          <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
-            {selectedCards.length > 0 && selectedCards.map((row, index) => (
-              <Card key={index} style={{ margin: '10px 0' }}>
-                <Card.Body style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Card.Title style={{ margin: 0, color: '#000' }}>{row.operation}</Card.Title>
-                  <Button  className="ant-btn" icon={<AiOutlineDelete />} size="large" onClick={()=>handleCheckboxChange(row)} />
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
-        </Col> */}
-
+  
+          <Col className="right-gantt-chart" xs={8}>
+            <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+              <Gantt />
+            </div>
+          </Col>
+        </Row>
+  
         <Container>
           <Row>
             <Col md={8} className="choose-box-section">
-              <ChooseBox/>
+              <ChooseBox />
             </Col>
           </Row>
         </Container>
-
-        
-      </Row>
-    </Container>
-
+      </Container>
     </>
-  )
+  );
+  
 }
 
 export default Manage;
