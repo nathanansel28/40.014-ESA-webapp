@@ -452,21 +452,24 @@ button:focus {
   border-radius: 10px !important;
   padding-top: 10px !important;
   height: 600px !important;
-  padding: 10px !important;
+  padding: 20px !important;
   color: white !important;
   margin-top: 70px !important;
 }
 
 .table-container{
-  max-height: 400px;
-  overflow: auto;
-  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+  margin-top: 100px;
 }
 
 .custom-table{
-  width: 100%;
+  width: max-content; /* Ensure the table width can exceed the container width */;
+  /* overflow-x: auto ; */
   white-space: nowrap;
 }
+
 /* Drag Drop File CSS */
 
 #form-file-upload{

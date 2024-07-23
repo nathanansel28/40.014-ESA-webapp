@@ -58,7 +58,7 @@ function Manage() {
             <div className="left-roundedge-section">
               <Col className="drag-drop-section-manage">
                 <UploadFile onUploadSuccess={handleUploadSuccess} endpoint="http://127.0.0.1:8000/uploadfile/" />
-                <Particle />
+                {/* <Particle /> */}
                 <div className="table-container">
                   {csvData.length > 0 && (
                     <Table striped bordered hover className="custom-table">
