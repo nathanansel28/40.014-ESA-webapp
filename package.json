@@ -1,5 +1,4 @@
 {
-  "homepage": "https://nathanansel28.github.io/",
   "name": "website",
   "version": "0.1.0",
   "private": true,
@@ -23,8 +22,6 @@
     "yarn": "^1.22.22"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
