@@ -7,7 +7,7 @@ function Gantt() {
   return (
     <div className="gantt-container">
       <header className="gantt-header">
-        <h1>Assembly Line Scheduling</h1>
+        {/* <h1>Assembly Line Scheduling</h1> */}
       </header>
       <GanttChart />
     </div>

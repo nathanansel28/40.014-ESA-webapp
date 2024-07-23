@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Gantt, ViewMode } from 'gantt-task-react';
+import axios from 'axios';
 import 'gantt-task-react/dist/index.css';
 import Papa from 'papaparse';
 import './GanttChart.css';
@@ -22,14 +23,36 @@ function GanttChart() {
       const controller = new AbortController();
       const signal = controller.signal;
 
+
       try {
         console.log("Fetching CSV file...");
-        const response = await fetch('/5machines_0.15p_0.8D.csv', { signal }); // Adjust the path as needed
-        if (!response.ok) {
-          throw new Error(`Failed to fetch CSV file: ${response.statusText}`);
-        }
-        const csvText = await response.text();
+    
+        // Using axios to fetch the CSV file as a blob
+        const axiosResponse = await axios.get(`http://127.0.0.1:8000/static/files/5machines_0.15p_0.8D.csv`, {
+            responseType: 'blob',
+        });
+    
+        // If you prefer to use fetch, you can uncomment the following lines and comment out the axios part
+        // const response = await fetch(`http://127.0.0.1:8000/static/files/${filename}`, { signal });
+        // if (!response.ok) {
+        //     throw new Error(`Failed to fetch CSV file: ${response.statusText}`);
+        // }
+        // const csvText = await response.text();
+    
+        // Reading the response text from axios
+        const csvText = await axiosResponse.data.text();
         console.log("CSV file fetched successfully:", csvText);
+      // try {
+      //   console.log("Fetching CSV file...");
+      //   const response = await axios.get(`http://127.0.0.1:8000/static/files/${filename}`, {
+      //     responseType: 'blob',
+      //   });
+      //   const response = await fetch('/5machines_0.15p_0.8D.csv', { signal }); // Adjust the path as needed
+      //   if (!response.ok) {
+      //     throw new Error(`Failed to fetch CSV file: ${response.statusText}`);
+      //   }
+      //   const csvText = await response.text();
+      //   console.log("CSV file fetched successfully:", csvText);
 
         Papa.parse(csvText, {
           header: true,
