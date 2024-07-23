@@ -11,7 +11,7 @@
 .objective_main {
   text-align: left;
   background: #fff !important;
-  padding: 2rem;
+  padding: 1rem;
   width: 48%; /* Adjust this value to fit your design */
   height: 250px; /* Set a fixed height */
   border-radius: 20px;
@@ -19,7 +19,7 @@
   background: #000000 !important;
   opacity: 0.85;
   color: #fff !important;
-  margin: 1rem 0; /* Add margin to create space between the boxes */
+  margin: 1rem; /* Add margin to create space between the boxes */
 }
 
 .objective_block {
@@ -49,5 +49,5 @@
 .objectives-container {
   display: flex;
   justify-content: space-between; /* Adjust spacing between the boxes */
-  gap: 1rem; /* Add gap between the boxes */
+  gap: 0.2%; /* Add gap between the boxes */
 }
