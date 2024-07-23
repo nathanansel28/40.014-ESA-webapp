@@ -5,15 +5,24 @@ import './Objectives.css'; // Make sure the path is correct
 import { Button } from 'react-bootstrap';
 
 const Objectives = () => {
-  return (
-    <div className="objective_main">
-      <h className="objective_title">Choose one objective to prioritize!</h>
-      <div className="objective_title">
-        <ObjectiveList />
-        <Button type="primary">Submit</Button>
+    return (
+      <div className="objectives-container">
+        <div className="objective_main">
+          <p style={{color:"white"}}>Choose one objective to prioritize!</p>
+          <div className="objective-title">
+            <ObjectiveList />
+            <Button type="primary">Submit</Button>
+          </div>
+        </div>
+        <div className="objective_main">
+          <p style={{color:"white"}}>Results:</p>
+          <div className="objective-title">
+            Results... 
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
-
-export default Objectives;
+    );
+  };
+  
+  export default Objectives;
+  

@@ -4,4 +4,50 @@
     opacity: 0.7; /* Adjust the opacity as desired */
     border-color: white; /* Optional: Change border color too */
   }
-  
+
+
+/* objectives */
+
+.objective_main {
+  text-align: left;
+  background: #fff !important;
+  padding: 1rem;
+  width: 48%; /* Adjust this value to fit your design */
+  height: 250px; /* Set a fixed height */
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: #000000 !important;
+  opacity: 0.85;
+  color: #fff !important;
+  margin: 1rem; /* Add margin to create space between the boxes */
+}
+
+.objective_block {
+  background-color: #000;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.objective_button {
+  margin-right: 10px;
+}
+
+.objective_text {
+  font-size: 20px;
+  color: #fff;
+}
+
+.objective_title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.objectives-container {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing between the boxes */
+  gap: 0.2%; /* Add gap between the boxes */
+}
