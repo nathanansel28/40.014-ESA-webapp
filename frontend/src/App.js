@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Preloader from "./components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
-import Gantt from "./components/Chart/Gantt";
 import Manage from "./components/Manage/Manage";
 import Orders from "./components/Orders/Orders";
 import {
@@ -35,9 +34,8 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/manage" element={<Manage />} />
           <Route path="/orders" element={<Orders />}/>
-          <Route path="/chart" element={<Gantt/>} /> 
+          <Route path="/manage" element={<Manage />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
       </div>

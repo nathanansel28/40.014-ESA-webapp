@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { Container, Col, Card, Form, Row } from 'react-bootstrap';
 import Particle from '../Particle';
-import DragDrop from './DragDrop';
+import Gantt from '../Chart/Gantt';
 import UploadFile from './UploadFile'
 import axios from 'axios';
 import Papa from 'papaparse'; // CSV parsing library
@@ -79,7 +79,14 @@ function Manage() {
           
         </Col>
 
-        <Col className="selected-cards-section" xs={8}>
+        <Col className="right-gantt-chart" xs ={8}>
+        <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+          <Gantt/>
+        </div>
+        </Col>
+
+
+        {/* <Col className="selected-cards-section" xs={8}>
           <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
             {selectedCards.length > 0 && selectedCards.map((row, index) => (
               <Card key={index} style={{ margin: '10px 0' }}>
@@ -90,7 +97,7 @@ function Manage() {
               </Card>
             ))}
           </div>
-        </Col>
+        </Col> */}
 
         <Container>
           <Row>

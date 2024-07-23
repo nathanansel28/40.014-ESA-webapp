@@ -511,10 +511,13 @@ button:focus {
   left:0px;
 }
 
-.selected-cards-section{
+/* .selected-cards-section{
   padding-top: 70px !important;
 
-}
+} */
+
+
+
 .drag-drop-section-manage {
   position: relative !important;
   padding-left: 30px;
@@ -644,7 +647,7 @@ button:focus {
 }
 
 .objective_main {
-  background: #ecf2fd;
+  background: #000;
   padding: 0.8rem 1rem;
   width: 25vw;
   text-align: left;
@@ -659,7 +662,8 @@ button:focus {
 .choose-box-section{
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  top: 300px;
+  right: 220px;
   padding: 20px;
   border-radius: 10px;
 }

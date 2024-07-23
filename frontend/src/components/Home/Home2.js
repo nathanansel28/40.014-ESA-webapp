@@ -20,14 +20,12 @@ function Home2() {
               <br />By incorporating <b className="purple"> heuristic methods</b>, we aim to create an intuitive and efficient tool that addresses the complexities of <b className="purple"> large-scale scheduling.</b>
               <br />
               <br />
-              Our solution focuses on &nbsp;
-              <i>
+              Our solution focuses on&nbsp;
                 <b className="purple">minimizing makespan, work in process, and inventory</b> 
-                {" "},ultimately{" "}
+                {""}, ultimately{" "}
                 <b className="purple">
                     {" "}enhancing productivity and reducing operational inefficiencies.{" "}
                 </b>
-              </i>
               <br />
             </p>
           </Col>
