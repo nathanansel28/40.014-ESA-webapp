@@ -14,17 +14,37 @@ export default function ObjectiveList() {
 
   return (
     <FormControl>
-      <FormLabel id="demo-controlled-radio-buttons-group">Objectives</FormLabel>
+      <FormLabel id="demo-controlled-radio-buttons-group" style={{color:"white"}}>Objectives</FormLabel>
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={value}gi
+        value={value}
         onChange={handleChange}
       >
-        <FormControlLabel value="Makespan" control={<Radio />} label="Minimise Makespan" />
-        <FormControlLabel value="Cost" control={<Radio />} label="Minimise WIP Holding Costs" />
-        <FormControlLabel value="Runtime" control={<Radio />} label="Minimise Runtime" />
-        <FormControlLabel value="Tardiness" control={<Radio />} label="Minimise Tardiness" />
+        <FormControlLabel
+          value="Makespan"
+          control={<Radio sx={{ color: 'white', '&.Mui-checked': { color: 'white' }, '& .MuiSvgIcon-root': { color: 'white' } }} />}
+          label="Minimise Makespan"
+          style={{ color: 'white' }}
+        />
+        <FormControlLabel
+          value="Cost"
+          control={<Radio sx={{ color: 'white', '&.Mui-checked': { color: 'white' }, '& .MuiSvgIcon-root': { color: 'white' } }} />}
+          label="Minimise WIP Holding Costs"
+          style={{ color: 'white' }}
+        />
+        <FormControlLabel
+          value="Runtime"
+          control={<Radio sx={{ color: 'white', '&.Mui-checked': { color: 'white' }, '& .MuiSvgIcon-root': { color: 'white' } }} />}
+          label="Minimise Runtime"
+          style={{ color: 'white' }}
+        />
+        <FormControlLabel
+          value="Tardiness"
+          control={<Radio sx={{ color: 'white', '&.Mui-checked': { color: 'white' }, '& .MuiSvgIcon-root': { color: 'white' } }} />}
+          label="Minimise Tardiness"
+          style={{ color: 'white' }}
+        />
       </RadioGroup>
     </FormControl>
   );

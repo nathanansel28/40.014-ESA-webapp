@@ -596,43 +596,6 @@ button:focus {
 }
 
 
-/* objectives */
-
-.objective_main{
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  padding: 16px;
-  background-color: #fff;
-  display:flex;
-  align-items: center;
-  flex-direction: column;
-  max-width: 400px;
-  margin:20px auto;
-}
-
-.objective_block {
-  background-color: #fff;
-  border-radius:10px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.objective_button {
-  margin-right: 10px;
-}
-
-.objective_text{
-  font-size: 20px;
-  color:#000;
-}
-
-.objective_title{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 
 /* ChooseBox */
 
@@ -643,18 +606,6 @@ button:focus {
   flex-direction: column;
 }
 
-.objective_main {
-  background: #ecf2fd;
-  padding: 0.8rem 1rem;
-  width: 25vw;
-  text-align: left;
-  border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0px;
-}
 
 .choose-box-section{
   position: absolute;
