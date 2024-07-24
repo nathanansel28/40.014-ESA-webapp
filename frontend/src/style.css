@@ -451,14 +451,14 @@ button:focus {
   background-color: black;
   border-radius: 10px !important;
   padding-top: 10px !important;
-  height: 600px !important;
+  height: 400px !important;
   padding: 20px !important;
   color: white !important;
   margin-top: 70px !important;
 }
 
 .table-container{
-  max-height: 500px;
+  max-height: 300px;
   overflow-y: auto !important;
   overflow-x: auto !important;
   margin-top: 100px;
@@ -503,6 +503,7 @@ button:focus {
   border:none;
   font-family: "Oswald", sans-serif;
   background-color: transparent;
+  position: center;
 }
 
 .upload-button:hover{
@@ -533,17 +534,20 @@ button:focus {
 
 
 .drag-drop-section-manage {
+  /* display: flex;
+  justify-content: center;
+  align-items:center; */
   position: relative !important;
-  padding-left: 30px;
-  padding-top: 20px !important;
-  width: 360px !important;
+  /* padding-left: 10px; */
+  padding-top: 10px !important;
+  /* width: 600px !important; */
   color: #fff;
   /* background-image: var(--section-background-color) !important; */
 }
 
 .ant-upload-text {
   color: #fff !important;
-  text-align: left;
+  text-align: center;
   font-size: 15px !important;
 }
 

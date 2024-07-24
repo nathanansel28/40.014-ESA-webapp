@@ -54,7 +54,7 @@ function Manage() {
     <>
       <Container fluid>
         <Row>
-          <Col xs={4}>
+          <Col>
             <div className="left-roundedge-section">
               <Col className="drag-drop-section-manage">
                 <UploadFile onUploadSuccess={handleUploadSuccess} endpoint="http://127.0.0.1:8000/uploadfile/" />
@@ -84,21 +84,52 @@ function Manage() {
               </Col>
             </div>
           </Col>
-  
-          <Col className="right-gantt-chart" xs={8}>
-            <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
-              <Gantt />
+          <Col>
+            <div className="left-roundedge-section">
+              <Col className="drag-drop-section-manage">
+                <UploadFile onUploadSuccess={handleUploadSuccess} endpoint="http://127.0.0.1:8000/uploadfile/" />
+                {/* <Particle /> */}
+                <div className="table-container">
+                  {csvData.length > 0 && (
+                    <Table striped bordered hover className="custom-table">
+                      <thead>
+                        <tr>
+                          {Object.keys(csvData[0]).map((header, index) => (
+                            <th key={index}>{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {csvData.map((row, rowIndex) => (
+                          <tr key={rowIndex}>
+                            {Object.values(row).map((value, colIndex) => (
+                              <td key={colIndex}>{value}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  )}
+                </div>
+              </Col>
             </div>
           </Col>
-        </Row>
+          
   
-        <Container>
-          <Row>
-            <Col md={8} className="choose-box-section">
-              <ChooseBox />
+            <Col className="right-gantt-chart">
+              <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+                <Gantt />
+              </div>
             </Col>
           </Row>
-        </Container>
+    
+          {/* <Container>
+            <Row>
+              <Col md={8} className="choose-box-section">
+                <ChooseBox />
+              </Col>
+            </Row>
+          </Container> */}
       </Container>
     </>
   );
