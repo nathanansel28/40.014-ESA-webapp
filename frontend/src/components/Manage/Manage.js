@@ -53,7 +53,7 @@ function Manage() {
 
   return (
     <>
-    <Row className="instruction-section">
+    {/* <Row className="instruction-section">
   <Col md={8} style={{ textAlign: 'left', backgroundColor: 'transparent', color: 'white' }}>
     <Card style={{ backgroundColor: 'transparent', color: 'white', border: 'none' }}>
       <Card.Body>
@@ -99,7 +99,7 @@ function Manage() {
       </Card.Body>
     </Card>
   </Col>
-</Row>
+</Row> */}
 
       <Container fluid>
         <Row>
@@ -165,11 +165,13 @@ function Manage() {
           </Col>
           
   
-            <Col className="right-gantt-chart">
-              <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+          <Col className="right-gantt-chart">
+            <div className="gantt-chart-wrapper">
+              <div className="gantt-chart-container">
                 <Gantt />
               </div>
-            </Col>
+            </div>
+          </Col>
           </Row>
     
           {/* <Container>
