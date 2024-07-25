@@ -163,6 +163,14 @@ function Manage() {
               </Col>
             </div>
           </Col>
+
+          <Container>
+            <Row>
+              <Col className="choose-box-section">
+                <ChooseBox />
+              </Col>
+            </Row>
+          </Container>
           
   
           <Col className="right-gantt-chart">
@@ -174,13 +182,6 @@ function Manage() {
           </Col>
           </Row>
     
-          {/* <Container>
-            <Row>
-              <Col md={8} className="choose-box-section">
-                <ChooseBox />
-              </Col>
-            </Row>
-          </Container> */}
       </Container>
 
     </>
