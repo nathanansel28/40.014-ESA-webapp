@@ -459,13 +459,14 @@ button:focus {
 
 .table-container{
   max-height: 300px;
+  max-width: 710px;
   overflow-y: auto !important;
   overflow-x: auto !important;
   margin-top: 100px;
 }
 
 .custom-table{
-  width: max-content; /* Ensure the table width can exceed the container width */;
+  width: 300px; /* Ensure the table width can exceed the container width */;
   /* overflow-x: auto ; */
   white-space: nowrap;
 }
@@ -628,9 +629,9 @@ button:focus {
 }
 
 .objective_main {
-  background: #ecf2fd;
+  background: #000;
   padding: 0.8rem 1rem;
-  width: 25vw;
+  /* width: 25vw; */
   text-align: left;
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
