@@ -52,7 +52,11 @@ width: 100%;
   align-items: center; /* Center vertically */
   gap: 0.1%; /* Adjust gap between the boxes */
   width: 100vw !important; /* Full width of the screen */
+<<<<<<< HEAD
   /* position: absolute; */
+=======
+  position: absolute;
+>>>>>>> 71d801f7e3825560f3fba08ffed6c8d7a7681257
   bottom: 0;
   right: 0;
   padding-left: 25px; /* Add padding to the left to prevent overlap */
