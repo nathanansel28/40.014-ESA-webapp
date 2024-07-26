@@ -1,13 +1,32 @@
-import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import React from 'react';
+import './Objectives.css'; // Make sure the path is correct
 
-export default function ObjectiveList() {
-  const [value, setValue] = React.useState('female');
+const ObjectiveList = () => {
+    return (
+        <div className="objective-list-container">
+            <label className="objective-option">
+                <input type="radio" name="objective" value="Minimise Makespan" />
+                Minimise Makespan
+            </label>
+            <label className="objective-option">
+                <input type="radio" name="objective" value="Minimise WIP Holding Costs" />
+                Minimise WIP Holding Costs
+            </label>
+            <label className="objective-option">
+                <input type="radio" name="objective" value="Minimise Runtime" />
+                Minimise Runtime
+            </label>
+            <label className="objective-option">
+                <input type="radio" name="objective" value="Minimise Tardiness" />
+                Minimise Tardiness
+            </label>
+        </div>
+    );
+};
 
+<<<<<<< HEAD
+export default ObjectiveList;
+=======
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -50,3 +69,4 @@ export default function ObjectiveList() {
     </FormControl>
   );
 }
+>>>>>>> 71d801f7e3825560f3fba08ffed6c8d7a7681257

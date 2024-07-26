@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+.objectives-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.objective_main {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Adjust as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-text {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: white; /* White text color */
+}
+
+.objective-list-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between options */
+}
+
+.objective-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; /* White text color */
+}
+
+.objective-option input[type="radio"] {
+  margin-right: 5px;
+  accent-color: blue; /* White color for the radio button */
+}
+
+.submit-button {
+  margin-top: 20px;
+  border: 2px solid white; /* White border */
+  color: white; /* White text */
+  background-color: transparent; /* Transparent background */
+=======
 /* Objectives.css (or your preferred CSS file) */
 .ant-btn-primary:hover {
   background-color: white;
@@ -60,4 +110,5 @@ width: 100%;
   bottom: 0;
   right: 0;
   padding-left: 25px; /* Add padding to the left to prevent overlap */
+>>>>>>> 71d801f7e3825560f3fba08ffed6c8d7a7681257
 }
