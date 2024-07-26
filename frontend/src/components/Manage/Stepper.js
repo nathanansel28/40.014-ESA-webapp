@@ -54,7 +54,7 @@ const stepComponents = [
     }, [sectionRefs]);
   
     return (
-      <div style={{ backgroundColor: '#000', padding: '5px' }}>
+      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '5px' }}>
         <Box sx={{ width: '100%' }}>
           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label, index) => (
