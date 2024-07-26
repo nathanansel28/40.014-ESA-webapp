@@ -11,6 +11,8 @@ import ChooseBox from '../Manage/ChooseBox';
 import SampleImage from '../../Assets/instructions_image.jpg';
 import './Manage.css';
 import Instructions from './Instructions';
+import { Stepper } from '@mui/material';
+import ProgressBar from './Stepper';
 
 function Manage() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
@@ -44,6 +46,12 @@ function Manage() {
 
   return (
     <>
+    <Row>
+      <div style={{ position:'absolute', paddingTop:"100px"}} >
+      <ProgressBar/>
+      </div>
+    </Row>
+
     <div className="central-container">
       <Instructions />
     </div>
@@ -120,9 +128,15 @@ function Manage() {
           
   
             <Col className="right-gantt-chart">
-              <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+              <div style={{ maxHeight: '800px', overflowY: 'auto', marginTop: '20px' }}>
                 <Gantt />
               </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <div style={{ height: '200px' }}></div> {/* Adjust the height as needed */}
             </Col>
           </Row>
     

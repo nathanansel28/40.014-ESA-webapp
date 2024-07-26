@@ -6,7 +6,7 @@ import './Manage.css';
 const Instructions = () => (
   <div className="backblackground-round">
     <Row>
-      <Col md={8} style={{ textAlign: 'left', backgroundColor: 'transparent', color: 'white' }}>
+      <Col md={11} style={{ textAlign: 'left', backgroundColor: 'transparent', color: 'white' }}>
         <Card style={{ backgroundColor: 'transparent', color: 'white', border: 'none' }}>
           <Card.Body>
             <Card.Title style={{ textAlign: 'center', fontWeight: 'bold' }}>✨Instructions for Uploading CSV Files✨ </Card.Title>

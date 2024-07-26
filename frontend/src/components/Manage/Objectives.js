@@ -16,13 +16,13 @@ const Objectives = () => {
             </div>
         </div>
 
-          <div className="objective_main">
+          {/* <div className="objective_main">
             <p style={{color:"white"}}>Choose one objective to prioritize!</p>
             <div className="objective-title">
               <ObjectiveList />
               <Button type="primary">Submit</Button>
             </div>
-          </div>
+          </div> */}
         {/* <div className="objective_main">
           <p style={{color:"white"}}>Results:</p>
           <div className="objective-title">

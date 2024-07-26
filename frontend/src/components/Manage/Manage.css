@@ -6,8 +6,8 @@
   .backblackground-round {
     background-color: black;
     padding-left: 50px;
-    width: 1250px;
-    height: 1300px !important;
+    width: 1555px;
+    height: 1200px !important;
     margin-top: 100px !important;
     margin-left: auto;
     margin-right: auto;
@@ -20,5 +20,6 @@
   .central-container {
     display: flex;
     justify-content: center;
+    padding-top: 100px;
   }
   
