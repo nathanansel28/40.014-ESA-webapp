@@ -164,17 +164,17 @@ function Manage() {
             </div>
           </Col>
 
-          <Container>
+          {/* <Container>
             <Row>
               <Col className="choose-box-section">
                 <ChooseBox />
               </Col>
             </Row>
-          </Container>
+          </Container> */}
           
   
             <Col className="right-gantt-chart">
-              <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+              <div style={{ maxHeight: '800px', overflowY: 'auto', marginTop: '20px' }}>
                 <Gantt />
               </div>
             </Col>
