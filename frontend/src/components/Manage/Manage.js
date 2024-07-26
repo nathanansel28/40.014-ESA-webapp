@@ -54,7 +54,7 @@ function Manage() {
   // };
 
   return (
-    <div style={{ marginTop: '100px' }}> !important {/* Adjust the marginTop value as needed */}
+    <div style={{ marginTop: '100px' }}>  {/* Adjust the marginTop value as needed */}
       <div style={{ position: 'fixed', top: '100px', width: '100%', zIndex: 1000 }}>
         <ProgressBar />
       </div>
