@@ -10,6 +10,8 @@ import { Button } from 'antd';
 import ChooseBox from '../Manage/ChooseBox';
 import SampleImage from '../../Assets/instructions_image.jpg';
 import './Manage.css';
+import ProgressBar from './Stepper';
+import Objectives from './Objectives';
 
 function Manage() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
@@ -52,9 +54,12 @@ function Manage() {
   // };
 
   return (
-    <>
-    {/* <Row className="instruction-section">
-  <Col md={8} style={{ textAlign: 'left', backgroundColor: 'transparent', color: 'white' }}>
+    <div style={{ marginTop: '100px' }}> !important {/* Adjust the marginTop value as needed */}
+      <div style={{ position: 'fixed', top: '100px', width: '100%', zIndex: 1000 }}>
+        <ProgressBar />
+      </div>
+      <Row className="instruction-section">
+        <Col md={8} style={{ textAlign: 'left', backgroundColor: 'transparent', color: 'white' }}>
     <Card style={{ backgroundColor: 'transparent', color: 'white', border: 'none' }}>
       <Card.Body>
         <Card.Title style={{ textAlign: 'center', fontWeight: 'bold' }}>Instructions for Uploading CSV Files</Card.Title>
@@ -99,7 +104,8 @@ function Manage() {
       </Card.Body>
     </Card>
   </Col>
-</Row> */}
+</Row>
+
 
       <Container fluid>
         <Row>
@@ -159,30 +165,37 @@ function Manage() {
                       </tbody>
                     </Table>
                   )}
+
                 </div>
               </Col>
             </div>
           </Col>
 
-          <Container>
+
+  <Container>
+    <Objectives />
+  </Container>
+         
+
+  
+            <Col className="right-gantt-chart">
+              <div style={{ maxHeight: '300px', overflowY: 'auto', marginTop: '20px' }}>
+                <Gantt />
+              </div>
+            </Col>
+          </Row>
+    
+          {/* <Container>
             <Row>
-              <Col className="choose-box-section">
+              <Col md={8} className="choose-box-section">
                 <ChooseBox />
               </Col>
             </Row>
-          </Container>
-          
-  
-          <Col className="right-gantt-chart">
-              <div className="gantt-chart-container">
-                <Gantt />
-              </div>
-          </Col>
-          </Row>
-    
+          </Container> */}
       </Container>
 
-    </>
+
+    </div>
   );
   
 }
