@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .objectives-container {
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@
   border: 2px solid white; /* White border */
   color: white; /* White text */
   background-color: transparent; /* Transparent background */
-=======
+
 /* Objectives.css (or your preferred CSS file) */
 .ant-btn-primary:hover {
   background-color: white;
@@ -101,14 +101,9 @@ width: 100%;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   gap: 0.1%; /* Adjust gap between the boxes */
-  width: 100vw !important; /* Full width of the screen */
-<<<<<<< HEAD
-  /* position: absolute; */
-=======
-  position: absolute;
->>>>>>> 71d801f7e3825560f3fba08ffed6c8d7a7681257
+  /* width: 100vw !important; */
   bottom: 0;
   right: 0;
   padding-left: 25px; /* Add padding to the left to prevent overlap */
->>>>>>> 71d801f7e3825560f3fba08ffed6c8d7a7681257
-}
+
+}}

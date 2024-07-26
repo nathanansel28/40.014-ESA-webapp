@@ -1,10 +1,24 @@
-.instruction-section {
-<<<<<<< HEAD
-    margin-top: 70px !important; /* Adjust this value as needed */
-    padding-top: 0px; /* Adjust this value as needed */
-=======
-    margin-top: 30px !important; /* Adjust this value as needed */
-    padding-top: 30px !important; /* Adjust this value as needed */
->>>>>>> 6fb8a4aa0c8a39486b38a8e210373538ed429d57
+/* .instruction-section {
+    margin-top: 10px !important; /* Adjust this value as needed */
+    /* padding-top: 0px; 
+}  */
+
+  .backblackground-round {
+    background-color: black;
+    padding-left: 50px;
+    width: 1250px;
+    height: 1300px !important;
+    margin-top: 100px !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .central-container {
+    display: flex;
+    justify-content: center;
   }
   
