@@ -1,38 +1,33 @@
-/* GanttChart.css */
-.gantt-chart-wrapper {
-  transform: scale(0.8); /* Scale down the chart to 80% */
-  transform-origin: top left; /* Ensure scaling starts from the top left */
-  width: 125%;
-  margin-top: 20px;
-}
-
 .gantt-chart-container {
-  background-color: white; /* Set background color to white */
   padding: 10px;
+  background-color: #ffffff;
+  color: white;
+  position: relative;
+  display: inline-block; /* Ensures the background only covers the content */
+  border-radius: 15px; /* Adds rounded edges */
+  margin-top: 20px; /* Adds space between the black box and the Gantt chart */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Optional: adds a shadow for better visibility */
 }
 
-.gantt-chart-container .gantt-task-table {
-  background-color: white; /* Ensure the table background is white */
+header h1 {
+  text-align: center;
+  color: #c366e7;
 }
 
-.gantt-chart-container .gantt-task-bar {
-  stroke: #6a0dad; /* Purple color for the bar border */
-  fill: #6a0dad;   /* Purple color for the bar fill */
+.gantt-chart-container .timeline-rect {
+  fill: #8A9B0F !important;
 }
 
-.gantt-chart-container .gantt-chart-content {
-  height: auto; /* Adjust height to fit content */
+.gantt-chart-container .timeline-label,
+.gantt-chart-container .timeline-axis text,
+.gantt-chart-container .z-scale text {
+  fill: white !important;
 }
 
-.gantt-chart-container .gantt-container {
-  height: auto; /* Adjust container height to fit content */
-  overflow-y: hidden; /* Hide vertical overflow */
+.gantt-chart-container .timeline-grid line {
+  stroke: white !important;
 }
 
-.custom-tooltip {
-  background-color: rgba(255, 255, 255, 0.8); /* White transparent background */
-  padding: 10px;
-  border-radius: 5px;
-  color: black; /* Text color */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
+div {
+  color: white;
 }

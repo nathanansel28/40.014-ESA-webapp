@@ -174,11 +174,9 @@ function Manage() {
           
   
           <Col className="right-gantt-chart">
-            <div className="gantt-chart-wrapper">
               <div className="gantt-chart-container">
                 <Gantt />
               </div>
-            </div>
           </Col>
           </Row>
     
