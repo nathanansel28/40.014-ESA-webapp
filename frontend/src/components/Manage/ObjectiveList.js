@@ -16,6 +16,7 @@ export default function ObjectiveList() {
     <FormControl>
       <FormLabel id="demo-controlled-radio-buttons-group" style={{color:"white"}}>Objectives</FormLabel>
       <RadioGroup
+        row
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
         value={value}
@@ -42,7 +43,7 @@ export default function ObjectiveList() {
         <FormControlLabel
           value="Tardiness"
           control={<Radio sx={{ color: 'white', '&.Mui-checked': { color: 'white' }, '& .MuiSvgIcon-root': { color: 'white' } }} />}
-          label="Minimise Tardiness"
+          label="Minimise Number of Tardy Jobs"
           style={{ color: 'white' }}
         />
       </RadioGroup>

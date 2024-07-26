@@ -12,7 +12,7 @@
 text-align: left;
 background: #fff !important;
 padding: 1rem;
-width: 70%; /* Adjust this value to fit your design */
+width: 100vw !important; /* Adjust this value to fit your design */
 height: 250px; /* Set a fixed height */
 border-radius: 20px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -48,12 +48,12 @@ width: 100%;
 
 .objectives-container {
   display: flex;
-  justify-content: flex-end; /* Align items to the end (right) */
-  align-items: flex-end; /* Align items to the end (bottom) */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   gap: 0.1%; /* Adjust gap between the boxes */
-  width: 100%; /* Ensure the container takes up the full width */
-  position: absolute; /* Position the container absolutely */
-  bottom: 0; /* Align to the bottom */
-  right: 0 !important; /* Align to the right */
-  padding-left: 25%; /* Add padding to the left to prevent overlap */
+  width: 100vw !important; /* Full width of the screen */
+  /* position: absolute; */
+  bottom: 0;
+  right: 0;
+  padding-left: 25px; /* Add padding to the left to prevent overlap */
 }
