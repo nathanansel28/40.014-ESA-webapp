@@ -1,5 +1,10 @@
 .instruction-section {
+<<<<<<< HEAD
     margin-top: 70px !important; /* Adjust this value as needed */
     padding-top: 0px; /* Adjust this value as needed */
+=======
+    margin-top: 30px !important; /* Adjust this value as needed */
+    padding-top: 30px !important; /* Adjust this value as needed */
+>>>>>>> 6fb8a4aa0c8a39486b38a8e210373538ed429d57
   }
   
