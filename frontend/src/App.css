@@ -38,11 +38,11 @@
 }
 
 .objective_main {
-  background: #ecf2fd;
+  background: #000000d6;
   padding: 0.8rem 1rem;
-  width: 30vw;
+  width: 100vw;
   text-align: left;
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 1rem;
   display: flex;
