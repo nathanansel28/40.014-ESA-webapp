@@ -12,7 +12,7 @@ import SampleImage from '../../Assets/instructions_image.jpg';
 import './Manage.css';
 import Instructions from './Instructions';
 import { Stepper } from '@mui/material';
-import ProgressBar from './Stepper';
+import ProgressBar from './ProgressBar';
 
 function Manage() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
