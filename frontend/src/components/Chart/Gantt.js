@@ -3,6 +3,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import GanttChart from './GanttChart';
 import './Gantt.css';
 
+
 function Gantt() {
   return (
     <div className="gantt-container">

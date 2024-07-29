@@ -459,7 +459,7 @@ button:focus {
 
 .table-container{
   max-height: 300px;
-  max-width: 710px;
+  max-width: 730px;
   overflow-y: auto !important;
   overflow-x: auto !important;
   margin-top: 100px;
