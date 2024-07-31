@@ -13,10 +13,6 @@ const ObjectiveList = () => {
                 Minimise WIP Holding Costs
             </label>
             <label className="objective-option">
-                <input type="radio" name="objective" value="Minimise Runtime" />
-                Minimise Runtime
-            </label>
-            <label className="objective-option">
                 <input type="radio" name="objective" value="Minimise Tardiness" />
                 Minimise Tardiness
             </label>
