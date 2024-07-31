@@ -1,10 +1,12 @@
-﻿# Manufacturing Gantt App (Karen, Norah, Peck Yeok)
+gy﻿# Manufacturing Gantt App (Karen, Norah, Peck Yeok)
 This project was built using these technologies.
 
 - React.js
 - Node.js
 - AntDesign
 - VsCode
+- MUI
+- Google-React-Charts
 
 ## Getting Started
 
@@ -17,9 +19,9 @@ In the event you need to download any of the above three modules, do:
 
 ## 🛠 Installation and Setup Instructions
 
-There are two parts to this: Front-end and Back-end, hence, you will need to run two different terminals to ensure that this website works!
+There are three parts to this: Front-end,  Back-end (1) and Back-end (2), hence, you will need to run three different terminals to ensure that this website works!
 
-## Back End
+## Back End Part 1
 
 1. Open a new terminal, ensure that your directory is in the server folder (do `cd server`)
 
@@ -28,6 +30,13 @@ There are two parts to this: Front-end and Back-end, hence, you will need to run
 3. Virtual env (env) should be created. Run `python -m uvicorn main:app --reload`
 
 Uvicorn should be running on [http://127.0.0.1:8000]
+
+## Back End Part 2
+
+1. Open a new terminal, ensure that your directory is in the server folder (do `cd server`)
+2. In the server directory, run `run flask`
+
+Flask should be running on [http://127.0.0.1:5000]
 
 ## Front End
 
