@@ -21,10 +21,10 @@ const ObjectiveList = ({
                 <input type="radio" name="objective" value="Minimise WIP Holding Costs" onChange={handleObjectiveChange}/>
                 Minimise WIP Holding Costs
             </label>
-            <label className="objective-option">
+            {/* <label className="objective-option">
                 <input type="radio" name="objective" value="Minimise Runtime" onChange={handleObjectiveChange}/>
                 Minimise Runtime
-            </label>
+            </label> */}
             <label className="objective-option">
                 <input type="radio" name="objective" value="Minimise Tardiness" onChange={handleObjectiveChange}/>
                 Minimise Number of Tardy Jobs
