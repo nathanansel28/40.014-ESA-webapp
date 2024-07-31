@@ -36,7 +36,7 @@ const Instructions = () => (
                 <ul>
                   <li>Minimize makespan</li>
                   <li>Minimize WIP holding cost</li>
-                  <li>Minimize runtime</li>
+                  {/* <li>Minimize runtime</li> */}
                   <li>Minimize Number of Tardy jobs</li>
                 </ul>
               </ul>

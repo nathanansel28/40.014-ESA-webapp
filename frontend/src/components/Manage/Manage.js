@@ -7,9 +7,9 @@ import UploadFile1 from './UploadFile1';
 import axios from 'axios';
 import Papa from 'papaparse'; // CSV parsing library
 import ChooseBox from '../Manage/ChooseBox';
-import ProgressBar from './Stepper';
 import Instructions from './Instructions';
-import './Manage.css';
+import { Stepper } from '@mui/material';
+import ProgressBar from './ProgressBar';
 
 function Manage() {
   const [csvData, setCsvData] = useState([]);
