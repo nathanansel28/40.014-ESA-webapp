@@ -97,7 +97,7 @@ const Instructions = () => (
                 <ul>
                   <li>Lead Time Evaluation and Scheduling Algorithm (LETSA)</li>
                   <li>Earliest Due Date (EDD)</li>
-                  {/* <li>Minimize runtime</li> */}
+                  <li>Lagrangian Relaxation (LR)</li>
                   <li>Simulated Annealing (SA)</li>
                 </ul>
               </ul>
