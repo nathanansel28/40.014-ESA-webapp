@@ -9,6 +9,7 @@ CORS(app)
 def convert_to_dataframe_endpoint():
     csv_data = request.get_json()
     df = convert_to_dataframe(csv_data)
+    print(df)
     # You can now process the DataFrame as needed
     # For example, you can save it to a file or database
     df.to_csv('output.csv', index=False)  # Saving to a CSV file as an example

@@ -54,9 +54,9 @@ async def get_files(filenames: List[str] = Body(...)):
             file_paths.append({"filename": filename, "error": "File not found"})
     return JSONResponse(file_paths)
 
-@app.post('/api/submit-objective')
-def submit_objective(selected_objective:str):
-    try: 
+# @app.post('/api/submit-objective')
+# def submit_objective(selected_objective:str):
+#     try: 
 
 
 @app.get("/")
