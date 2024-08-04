@@ -12,6 +12,19 @@ import matplotlib.patches as mpatches
 import matplotlib.patches as mpatches
 import matplotlib
 
+import pandas as pd
+
+from app import df_bom, df_workcentre
+
+def convert_to_dataframe(csv_data):
+    """
+    Convert parsed CSV data to a pandas DataFrame.
+
+    :param csv_data: List of dictionaries containing CSV data.
+    :return: pandas DataFrame
+    """
+    return pd.DataFrame(csv_data)
+
 # =====================================================================================
 # CLASS DEFINITIONS
 # =====================================================================================
@@ -336,3 +349,10 @@ def EDD_schedule_operations(operations, factory):
 
         # print("")
     return scheduled_operations
+
+
+operations = load_operations(df_bom)
+factory = load_factory(df_workcentre)
+EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
+df_scheduled = format_schedule(EDD_scheduled_operations, factory)
+df_scheduled.to_csv("static\\files\\scheduled.csv")

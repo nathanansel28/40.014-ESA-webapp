@@ -8,7 +8,7 @@ const GanttChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [chartData, setChartData] = useState(null);
-  const [dataUrl, setDataUrl] = useState('http://127.0.0.1:8000/static/files/best_schedule2.csv');
+  const [dataUrl, setDataUrl] = useState('http://127.0.0.1:8000/static/files/scheduled.csv');
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
 
