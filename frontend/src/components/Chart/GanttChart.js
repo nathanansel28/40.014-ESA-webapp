@@ -8,7 +8,7 @@ const GanttChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [chartData, setChartData] = useState(null);
-  const [dataUrl, setDataUrl] = useState('http://127.0.0.1:8000/static/files/scheduled.csv');
+  const dataUrl = 'http://127.0.0.1:8000/static/files/scheduled.csv';
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
 
@@ -53,14 +53,14 @@ const GanttChart = () => {
             localStorage.setItem('chartData', JSON.stringify(formattedChartData));
             setLoading(false);
           },
-          error: (error) => {
+          error: () => {
             setError('Error parsing CSV file.');
             setLoading(false);
           },
         });
       };
       reader.readAsText(response.data);
-    } catch (error) {
+    } catch {
       setError('Error fetching CSV file.');
       setLoading(false);
     }
@@ -68,12 +68,21 @@ const GanttChart = () => {
 
   useEffect(() => {
     const storedChartData = localStorage.getItem('chartData');
+    const fetchCsv = async () => {
+      await fetchData(dataUrl);
+    };
+
     if (storedChartData) {
       setChartData(JSON.parse(storedChartData));
       setLoading(false);
     } else {
-      fetchData(dataUrl);
+      fetchCsv();
     }
+
+    // Poll for changes to the CSV file
+    const intervalId = setInterval(fetchCsv, 300000); // Fetch new data every 5 minutes (300,000 milliseconds)
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
   }, [dataUrl]);
 
   useEffect(() => {
@@ -88,14 +97,6 @@ const GanttChart = () => {
     }
   }, [chartData]);
 
-  const handleUrlChange = () => {
-    localStorage.removeItem('chartData');
-    setChartData(null);
-    setLoading(true);
-    setError(null);
-    setDataUrl('http://127.0.0.1:8000/static/files/best_schedule1.csv');
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -108,7 +109,6 @@ const GanttChart = () => {
     <div className="gantt-chart-container">
       <header>
         <h1><strong>Gantt Chart</strong></h1>
-        <button onClick={handleUrlChange}>Change Dataset</button>
       </header>
       <div ref={chartRef} style={{ width: '100%', height: '500px' }}></div>
     </div>
