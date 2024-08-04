@@ -14,16 +14,16 @@ const ObjectiveList = ({
     return (
         <div className="objective-list-container">
             <label className="objective-option">
-                <input type="radio" name="objective" value="Minimise Makespan" onChange={handleObjectiveChange}/>
-                Minimise Makespan
+                <input type="radio" name="objective" value="LETSA" onChange={handleObjectiveChange}/>
+                Lead Time Evaluation and Scheduling Algorithm (LETSA)
             </label>
             <label className="objective-option">
-                <input type="radio" name="objective" value="Minimise WIP Holding Costs" onChange={handleObjectiveChange}/>
-                Minimise WIP Holding Costs
+                <input type="radio" name="objective" value="EDD" onChange={handleObjectiveChange}/>
+                Earliest Due Date (EDD)
             </label>
             <label className="objective-option">
-                <input type="radio" name="objective" value="Minimise Tardiness" />
-                Minimise Tardiness
+                <input type="radio" name="objective" value="SA" />
+                Simulated Annealing (SA)
             </label>
         </div>
     );
