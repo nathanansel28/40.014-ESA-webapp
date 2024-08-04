@@ -93,16 +93,16 @@ const Instructions = () => (
               </ul>
               <h5 style={{textAlign:'center'}}>Step 3: Select your heuristic approach👆</h5>
               <ul>
-                <li>After successfully uploading your CSV file you will be prompted to choose the objective you wish to minimize. The minimization objectives include:</li>
+                <li>After successfully uploading your CSV file you will be prompted to choose the algorithm you wish to utilise. The heuristic algorithms include:</li>
                 <ul>
-                  <li>Lead Time Evaluation and Scheduling Algorithm (LETSA)</li>
-                  <li>Earliest Due Date (EDD)</li>
-                  <li>Lagrangian Relaxation (LR)</li>
-                  <li>Simulated Annealing (SA)</li>
+                  <li>Lead Time Evaluation and Scheduling Algorithm (LETSA): Minimises makespan, algorithmic runtime, and WIP cost</li>
+                  <li>Earliest Due Date (EDD): Minimises algorithmic runtime and number of tardy jobs</li>
+                  <li>Lagrangian Relaxation (LR): Minimise algorithmic runtime and provides lower bound of the optimality</li>
+                  <li>Simulated Annealing (SA): Maximises solution quality</li>
                 </ul>
               </ul>
               <h5 style={{textAlign:'center'}}>Step 4: Generating Gantt Chart ⟳</h5>
-              <p>Once your CSV file is uploaded and your heuristc algorithm is selected, the Gantt Chart will be automatically generated. Please review the Gantt Chart to ensure it accurately represents your schedule.</p>
+              <p>Once your CSV file is uploaded and your heuristc algorithm is selected, the Gantt Chart will be automatically generated. Please review the Gantt Chart as it may makes mistake.</p>
               <h5 style={{textAlign:'center'}}>💡 Additional Notes:</h5>
               <ul>
                 <li>Ensure all variables are in the correct unit of measure (i.e. Number and Text).</li>
