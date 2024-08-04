@@ -14,7 +14,7 @@ import matplotlib
 
 import pandas as pd
 
-from app import df_bom, df_workcentre
+import globals  # Import the globals module
 
 def convert_to_dataframe(csv_data):
     """
@@ -67,6 +67,24 @@ class Operation:
 
     def __ge__(self, other):
         return not self.__lt__(other)
+    
+def safe_literal_eval(val):
+    try:
+        if pd.notnull(val):
+            # Evaluate the string to a Python object
+            result = ast.literal_eval(val)
+            # Ensure the result is a list and contains only strings
+            if isinstance(result, list) and all(isinstance(item, str) for item in result):
+                return result
+            else:
+                # If not, handle it as an invalid case
+                return []
+        else:
+            return []
+    except (ValueError, SyntaxError):
+        # Handle the case where literal_eval fails
+        return []
+
 
 def load_operations(df, LR=False):
     """
@@ -111,7 +129,7 @@ def load_factory(df_machine):
         workcenter = row['workcenter']
         dict_machines = {}
         for machine in (df_machine.columns[1:]): 
-            dict_machines[machine] = [[] for _ in range(row[machine])]
+            dict_machines[machine] = [[] for _ in range(int(row[machine]))]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
     return factory 
@@ -350,9 +368,12 @@ def EDD_schedule_operations(operations, factory):
         # print("")
     return scheduled_operations
 
-
-operations = load_operations(df_bom)
-factory = load_factory(df_workcentre)
-EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
-df_scheduled = format_schedule(EDD_scheduled_operations, factory)
-df_scheduled.to_csv("static\\files\\scheduled.csv")
+print(globals.df_bom["predecessor_operations"].dtype)
+globals.df_bom['predecessor_operations'] = globals.df_bom['predecessor_operations'].apply(safe_literal_eval)
+# df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
+print(globals.df_bom)
+# operations = load_operations(df_bom)
+# factory = load_factory(df_workcentre)
+# EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
+# df_scheduled = format_schedule(EDD_scheduled_operations, factory)
+# df_scheduled.to_csv("static\\files\\scheduled.csv")
