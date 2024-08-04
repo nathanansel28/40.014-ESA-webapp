@@ -25,6 +25,10 @@ const ObjectiveList = ({
                 <input type="radio" name="objective" value="SA" />
                 Simulated Annealing (SA)
             </label>
+            <label className="objective-option">
+                <input type="radio" name="objective" value="SA" />
+                Lagrangian Relaxation (LR)
+            </label>
         </div>
     );
 };
