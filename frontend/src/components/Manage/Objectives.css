@@ -2,17 +2,16 @@
 .objectives-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  width: 100vw; /* Full width of the viewport */
-  /* height: 100vh; Full height of the viewport */
-  /* padding-left: 0 25px; Optional: Add padding if needed */
+  align-items: center;
+  width: 100%; /* Full width of the parent */
   box-sizing: border-box;
+  padding: 20px; /* Optional: Add some padding */
 }
 
 /* Objective Main */
 .objective_main {
   width: 100%; /* Full width */
-  max-width: 1600px; /* Adjust as needed */
+  max-width: 1600px; /* Adjust as needed for responsiveness */
   background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
   padding: 20px;
   border-radius: 10px;
@@ -21,7 +20,7 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: #fff; /* White text color */
-  margin: 20px auto;
+  margin: 20px auto; /* Center horizontally */
   box-sizing: border-box;
 }
 
@@ -86,4 +85,17 @@
   flex-direction: column;
   width: 100%;
   text-align: center;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+  .objective_main {
+    max-width: 90%; /* Adjust the width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .objective_main {
+    max-width: 100%; /* Full width on smaller screens */
+  }
 }
