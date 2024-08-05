@@ -6,11 +6,10 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "INVENTORY",
+          "ALGORITHM RUNTIME",
           "MAKESPAN",
-          "IDLE TIME/BOTTLENECKS",
           "NUMBER OF TARDY JOBS",
-          "WORK-IN-PROCESS",
+          "WORK-IN-PROCESS (WIP) COSTS",
         ],
         autoStart: true,
         loop: true,

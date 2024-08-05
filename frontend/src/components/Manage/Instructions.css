@@ -1,54 +1,54 @@
 /* Ensure the instructions container has a proper width and height */
 .instructions-container {
-    background-color: rgba(0, 0, 0, 0.393);
-    padding-left: 50px;
-    width: 1555px;
-    height: 1200px !important;
-    margin-top: 100px !important;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; /* Center text horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  background-color: rgba(0, 0, 0, 0.393);
+  padding: 30px;
+  width: 1555px;
+  height: auto; /* Change height to auto to fit content */
+  margin: 100px auto; /* Center and provide top margin */
+  text-align: center; /* Center text horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Style for the table */
-  table {
-    border-collapse: separate; /* Ensure borders do not collapse */
-    border-spacing: 10px; /* Add spacing between columns */
-    border-radius: 10px;
-    width: 100%; /* Make table take full width */
-    max-width: 800px; /* Optional: set a max-width */
-    margin: 20px auto; /* Center the table and add top/bottom margin */
-    background-color: #00000049; /* Optional: set background color */
-  }
-  
-  /* Style for table cells */
-  table th,
-  table td {
-    border: 1px solid #ddd; /* Add border to cells */
-    padding: 8px; /* Add padding inside cells */
-    text-align: left; /* Align text to the left */
-  }
-  
-  /* Optional: Style for table header */
-  table th {
-    background-color: #383839; /* Set background color for header */
-    font-weight: bold; /* Make header text bold */
-  }
-  
-  /* Additional styles to ensure content is properly spaced */
-  .instructions-container {
-    margin: 0 0 10px;
-    border-radius: 10px;
-    line-height: 1.5;
-  }
-  
-  /* Ensure the instructions container does not overlap */
-  .central-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-  }
-  
+/* Style for the table */
+table {
+  border-collapse: separate; /* Ensure borders do not collapse */
+  border-spacing: 10px; /* Add spacing between columns */
+  border-radius: 10px;
+  width: 100%; /* Make table take full width */
+  max-width: 800px; /* Optional: set a max-width */
+  margin: 20px auto; /* Center the table and add top/bottom margin */
+  background-color: #00000049; /* Optional: set background color */
+}
+
+/* Style for table cells */
+table th,
+table td {
+  border: 1px solid #ddd; /* Add border to cells */
+  padding: 8px; /* Add padding inside cells */
+  text-align: left; /* Align text to the left */
+}
+
+/* Optional: Style for table header */
+table th {
+  background-color: #383839; /* Set background color for header */
+  font-weight: bold; /* Make header text bold */
+}
+
+/* Additional styles to ensure content is properly spaced */
+.instructions-container {
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+/* Ensure the instructions container does not overlap */
+.central-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 150px; /* Increased padding to prevent overlap */
+}
+
+.upload-file-area {
+  margin-top: 50px; /* Add margin-top to separate it from the instructions */
+}
