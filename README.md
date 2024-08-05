@@ -1,6 +1,5 @@
-gy﻿# Manufacturing Gantt App (Karen, Norah, Peck Yeok)
+# Gantt: An Operation Scheduling Web App
 This project was built using these technologies.
-
 - React.js
 - Node.js
 - AntDesign
@@ -9,7 +8,6 @@ This project was built using these technologies.
 - Google-React-Charts
 
 ## Getting Started
-
 Clone down this repository. You will need `node.js` and `git` installed globally on your machine. You would also need `Uvicorn`,  `FastApi` and  `Pandas` module installed.
 
 In the event you need to download any of the above three modules, do:
