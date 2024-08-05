@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 from pydantic import BaseModel
 from EDD import execute_edd_schedule, safe_literal_eval
-from LETSA import execute_LETSA_schedule, safe_literal_eval
+from LETSA import execute_LETSA_schedule
 from LR import execute_LR_schedule
 from SA import execute_SA_schedule
 
@@ -86,33 +86,50 @@ async def convert_to_dataframe_workcentre(data: List[dict]):
         logger.error(f"Error converting Workcentre data to DataFrame: {str(e)}")
         return JSONResponse(status_code=500, content={"message": str(e)})
     
+@app.post("/api/submit-objective")
+async def submit_objective(objective_submission: ObjectiveSubmission):
+    logger.info(f"Submit objective function called: {objective_submission.selectedObjective}")
+    if objective_submission.selectedObjective == "EDD":
+        response = await schedule_operations("EDD")
+        return response
+
+    elif objective_submission.selectedObjective == "LETSA":
+        response = await schedule_operations("LETSA") 
+        return {"message": "LETSA objective handled."}
+
+    elif objective_submission.selectedObjective == "SA":
+        response = await schedule_operations("SA") 
+        return {"message": "SA objective handled."}
+
+    elif objective_submission.selectedObjective == "LR":
+        response = await schedule_operations("LR")
+        return {"message": "LR objective handled."}
+
+    else:
+        logger.error("Error at submit objective in main.py")
+        logger.error("Objective not handled: %s", objective_submission.selectedObjective)
+        return {"message": f"Objective {objective_submission.selectedObjective} is not handled yet."}
+
 @app.post("/schedule")
 async def schedule_operations(heuristic):
     logger.info("Running schedule_operations")
     try:
-        # logger.info("Starting the scheduling process.")
         bom_path = os.path.join(UPLOAD_DIRECTORY, "converted_bom.csv")
         if os.path.exists(bom_path):
             df_bom = pd.read_csv(bom_path)
             df_bom = df_bom.dropna(subset=['operation'])
-            # logger.info("BOM DataFrame loaded successfully.")
         else:
             logger.error(f"BOM file not found at path: {bom_path}")
             return JSONResponse(status_code=404, content={"message": "BOM file not found"})
 
-        # Load Workcentre DataFrame
         workcentre_path = os.path.join(UPLOAD_DIRECTORY, "converted_workcentre.csv")
         if os.path.exists(workcentre_path):
             df_workcentre = pd.read_csv(workcentre_path)
             df_workcentre = df_workcentre.dropna(how='all')
-            # logger.info("Workcentre DataFrame loaded successfully.")
         else:
             logger.error(f"Workcentre file not found at path: {workcentre_path}")
             return JSONResponse(status_code=404, content={"message": "Workcentre file not found"})
 
-        # Execute EDD scheduling process
-        logger.error("Running schedule finding")
-        print("Hello world")
         if heuristic == "EDD": 
             schedule_path = execute_edd_schedule(df_bom, df_workcentre)
         elif heuristic == "LETSA": 
@@ -120,13 +137,13 @@ async def schedule_operations(heuristic):
         elif heuristic == "LR": 
             schedule_path = execute_LR_schedule(df_bom, df_workcentre)
         elif heuristic == "SA": 
-            shcedule_path = execute_SA_schedule(df_bom, df_workcentre)
+            schedule_path = execute_SA_schedule(df_bom, df_workcentre)
 
         if not schedule_path:
+            logger.info(schedule_path)
             logger.error("execute_edd_schedule returned None")
             return JSONResponse(status_code=500, content={"message": "Scheduling failed"})
-
-        logger.info(f"Scheduling completed successfully. Schedule saved at: {schedule_path}")
+        logger.info("schedule_operations success")
         return {"message": "Scheduling completed successfully", "schedule_url": f"/static/files/scheduled.csv"}
     
     except Exception as e:
@@ -134,43 +151,3 @@ async def schedule_operations(heuristic):
         logger.error(f"Error in scheduling operations: {str(e)}")
         return JSONResponse(status_code=500, content={"message": str(e)})
     
-@app.post("/api/submit-objective")
-async def submit_objective(objective_submission: ObjectiveSubmission):
-    logger.info("Submit objective function called:")
-    logger.info(objective_submission.selectedObjective)
-    if objective_submission.selectedObjective == "EDD":
-        response = await schedule_operations("EDD")
-        logger.info("EDD Success")
-        return response
-    elif objective_submission.selectedObjective == "LETSA":
-        response = await schedule_operations("LETSA") # Handle LETSA objective
-        logger.info("LETSA selected")
-        return {"message": "LETSA objective handled."}
-    elif objective_submission.selectedObjective == "SA":
-        response = await schedule_operations("SA")# Handle SA objective
-        logger.info("SA selected")
-        return {"message": "SA objective handled."}
-    elif objective_submission.selectedObjective == "LR":
-        response = await schedule_operations("LR") # Handle LR objective
-        logger.info("LR selected")
-        return {"message": "LR objective handled."}
-    else:
-        logger.info("Error at submit objective in main.py")
-        logger.info("Objective not handled: %s", objective_submission.selectedObjective)
-        return {"message": f"Objective {objective_submission.selectedObjective} is not handled yet."}
-
-
-# @app.post("/api/submit-objective")
-# async def submit_objective(objective_submission: ObjectiveSubmission):
-#     # logger.info("Submit objective function called:")
-#     # logger.info(objective_submission.selectedObjective)
-#     logger.info("Hello!")
-#     if objective_submission.selectedObjective == "EDD":
-#         response = await schedule_operations()
-#         logger.info("Success")
-#         return response
-#     else:
-#         logger.info("Error at submit objective at main.py")
-#         logger.info("Objective not handled: %s", objective_submission.selectedObjective)
-#         return {"message": f"Objective {objective_submission.selectedObjective} is not handled yet."}
-#     logger.info("Objective submission complete")
