@@ -9,7 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 from pydantic import BaseModel
 from EDD import execute_edd_schedule, safe_literal_eval
-
+from LETSA import execute_LETSA_schedule, safe_literal_eval
+from LR import execute_LR_schedule
+from SA import execute_SA_schedule
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -85,7 +87,7 @@ async def convert_to_dataframe_workcentre(data: List[dict]):
         return JSONResponse(status_code=500, content={"message": str(e)})
     
 @app.post("/schedule")
-async def schedule_operations():
+async def schedule_operations(heuristic):
     logger.info("Running schedule_operations")
     try:
         # logger.info("Starting the scheduling process.")
@@ -111,7 +113,15 @@ async def schedule_operations():
         # Execute EDD scheduling process
         logger.error("Running schedule finding")
         print("Hello world")
-        schedule_path = execute_edd_schedule(df_bom, df_workcentre)
+        if heuristic == "EDD": 
+            schedule_path = execute_edd_schedule(df_bom, df_workcentre)
+        elif heuristic == "LETSA": 
+            schedule_path = execute_LETSA_schedule(df_bom, df_workcentre)
+        elif heuristic == "LR": 
+            schedule_path = execute_LR_schedule(df_bom, df_workcentre)
+        elif heuristic == "SA": 
+            shcedule_path = execute_SA_schedule(df_bom, df_workcentre)
+
         if not schedule_path:
             logger.error("execute_edd_schedule returned None")
             return JSONResponse(status_code=500, content={"message": "Scheduling failed"})
@@ -126,18 +136,41 @@ async def schedule_operations():
     
 @app.post("/api/submit-objective")
 async def submit_objective(objective_submission: ObjectiveSubmission):
-    # logger.info("Submit objective function called:")
-    # logger.info(objective_submission.selectedObjective)
-    logger.info("Hello!")
+    logger.info("Submit objective function called:")
+    logger.info(objective_submission.selectedObjective)
     if objective_submission.selectedObjective == "EDD":
-        response = await schedule_operations()
-        logger.info("Success")
+        response = await schedule_operations("EDD")
+        logger.info("EDD Success")
         return response
-    elif 
+    elif objective_submission.selectedObjective == "LETSA":
+        response = await schedule_operations("LETSA") # Handle LETSA objective
+        logger.info("LETSA selected")
+        return {"message": "LETSA objective handled."}
+    elif objective_submission.selectedObjective == "SA":
+        response = await schedule_operations("SA")# Handle SA objective
+        logger.info("SA selected")
+        return {"message": "SA objective handled."}
+    elif objective_submission.selectedObjective == "LR":
+        response = await schedule_operations("LR") # Handle LR objective
+        logger.info("LR selected")
+        return {"message": "LR objective handled."}
     else:
-        logger.info("Error at submit objective at main.py")
+        logger.info("Error at submit objective in main.py")
         logger.info("Objective not handled: %s", objective_submission.selectedObjective)
         return {"message": f"Objective {objective_submission.selectedObjective} is not handled yet."}
 
-    logger.info("Objective submission complete")
 
+# @app.post("/api/submit-objective")
+# async def submit_objective(objective_submission: ObjectiveSubmission):
+#     # logger.info("Submit objective function called:")
+#     # logger.info(objective_submission.selectedObjective)
+#     logger.info("Hello!")
+#     if objective_submission.selectedObjective == "EDD":
+#         response = await schedule_operations()
+#         logger.info("Success")
+#         return response
+#     else:
+#         logger.info("Error at submit objective at main.py")
+#         logger.info("Objective not handled: %s", objective_submission.selectedObjective)
+#         return {"message": f"Objective {objective_submission.selectedObjective} is not handled yet."}
+#     logger.info("Objective submission complete")
