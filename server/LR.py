@@ -6,6 +6,7 @@ import os
 import time
 import ast
 import heapq
+from EDD import safe_literal_eval
 
 # =====================================================================================
 # CLASS DEFINITIONS
@@ -92,8 +93,8 @@ def load_factory(df_machine):
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
         dict_machines = {}
-        for machine in (df_machine.columns[2:]): 
-            dict_machines[machine] = [[] for _ in range(row[machine])]
+        for machine in (df_machine.columns[1:]): 
+            dict_machines[machine] = [[] for _ in range(int(row[machine]))]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
     return factory 
@@ -316,10 +317,12 @@ def LR_schedule_operations(operations, factory):
 
 
 def execute_LR_schedule(df_bom, df_workcentre): 
+    scheduled_csv_path = "static//files//scheduled.csv"
+    df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
     operations = load_operations(df_bom, LR=True)
     factory = load_factory(df_workcentre)
     LR_scheduled_operations, LR_lower_bound = LR_schedule_operations(operations, factory)
-    df_scheduled = format_schedule(LR_scheduled_operations)
-    scheduled_csv_path = "static//files//scheduled.csv"
+    df_scheduled = format_schedule(LR_scheduled_operations, factory)
     df_scheduled.to_csv(scheduled_csv_path, index=False)
     return scheduled_csv_path
+
