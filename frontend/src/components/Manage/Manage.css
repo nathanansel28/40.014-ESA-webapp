@@ -1,0 +1,25 @@
+/* .instruction-section {
+    margin-top: 10px !important; /* Adjust this value as needed */
+    /* padding-top: 0px; 
+}  */
+
+  /* .backblackground-round {
+    background-color: black;
+    padding-left: 50px;
+    width: 1555px;
+    height: 1200px !important;
+    margin-top: 100px !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+   */
+  .central-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+  }
+  

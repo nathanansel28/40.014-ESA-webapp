@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/40.014-ESA-webapp/static/css/main.4bea5aed.css",
+    "main.js": "/40.014-ESA-webapp/static/js/main.0faaa336.js",
+    "static/js/453.b503a1d9.chunk.js": "/40.014-ESA-webapp/static/js/453.b503a1d9.chunk.js",
+    "static/media/instructions_image.jpg": "/40.014-ESA-webapp/static/media/instructions_image.906f9d15b3229b24fa1b.jpg",
+    "static/media/home-bg.jpg": "/40.014-ESA-webapp/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/inventory.svg": "/40.014-ESA-webapp/static/media/inventory.df5d851b1103d075217c4bdd5d168459.svg",
+    "static/media/scheduler.svg": "/40.014-ESA-webapp/static/media/scheduler.fc546f1a8cab68d750b7f9d05e9f2009.svg",
+    "static/media/pre.svg": "/40.014-ESA-webapp/static/media/pre.066bb68cb3be9115aa82.svg",
+    "index.html": "/40.014-ESA-webapp/index.html",
+    "static/media/logo.svg": "/40.014-ESA-webapp/static/media/logo.e5dcb52ede448d3c0017a721cc945ee2.svg",
+    "main.4bea5aed.css.map": "/40.014-ESA-webapp/static/css/main.4bea5aed.css.map",
+    "main.0faaa336.js.map": "/40.014-ESA-webapp/static/js/main.0faaa336.js.map",
+    "453.b503a1d9.chunk.js.map": "/40.014-ESA-webapp/static/js/453.b503a1d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4bea5aed.css",
+    "static/js/main.0faaa336.js"
+  ]
+}

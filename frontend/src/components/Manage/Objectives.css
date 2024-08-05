@@ -1,0 +1,101 @@
+/* Centering the container */
+.objectives-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width of the parent */
+  box-sizing: border-box;
+  padding: 20px; /* Optional: Add some padding */
+}
+
+/* Objective Main */
+.objective_main {
+  width: 100%; /* Full width */
+  max-width: 1600px; /* Adjust as needed for responsiveness */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #fff; /* White text color */
+  margin: 20px auto; /* Center horizontally */
+  box-sizing: border-box;
+}
+
+.instruction-text {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.objective-list-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between options */
+}
+
+.objective-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.objective-option input[type="radio"] {
+  margin-right: 5px;
+  accent-color: blue; /* Blue color for the radio button */
+}
+
+.submit-button {
+  margin-top: 20px;
+  border: 2px solid white; /* White border */
+  color: white; /* White text */
+  background-color: transparent; /* Transparent background */
+  text-align: center;
+}
+
+.ant-btn-primary:hover {
+  background-color: white;
+  opacity: 0.7; /* Adjust the opacity as desired */
+  border-color: white; /* Optional: Change border color too */
+}
+
+.objective_block {
+  background-color: #000;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.objective_button {
+  margin-right: 10px;
+}
+
+.objective_text {
+  font-size: 20px;
+}
+
+.objective_title {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+  .objective_main {
+    max-width: 90%; /* Adjust the width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .objective_main {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}

@@ -1,0 +1,16 @@
+/* Gantt.css (or your preferred CSS file) */
+.gantt-header h1 {
+    color: white;
+  }
+  
+  /* Gantt.css (or your preferred CSS file) */
+.gantt-container {
+    margin-top: 2px; /* Adjust as needed */
+  }
+
+  /* Gantt.css (or your preferred CSS file) */
+.gantt-container {
+    position: relative;
+    top: 2px; /* Adjust as needed */
+  }
+  

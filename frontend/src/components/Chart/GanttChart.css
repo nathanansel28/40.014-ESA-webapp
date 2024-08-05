@@ -1,0 +1,33 @@
+.gantt-chart-container {
+  padding: 10px;
+  background-color: #ffffff;
+  color: white;
+  position: relative;
+  display: inline-block; /* Ensures the background only covers the content */
+  border-radius: 15px; /* Adds rounded edges */
+  margin-top: 20px; /* Adds space between the black box and the Gantt chart */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Optional: adds a shadow for better visibility */
+}
+
+header h1 {
+  text-align: center;
+  color: #c366e7;
+}
+
+.gantt-chart-container .timeline-rect {
+  fill: #8A9B0F !important;
+}
+
+.gantt-chart-container .timeline-label,
+.gantt-chart-container .timeline-axis text,
+.gantt-chart-container .z-scale text {
+  fill: white !important;
+}
+
+.gantt-chart-container .timeline-grid line {
+  stroke: white !important;
+}
+
+div {
+  color: white;
+}
