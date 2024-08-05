@@ -6,6 +6,7 @@ import os
 import time
 import ast
 import heapq
+from EDD import safe_literal_eval
 
 # =====================================================================================
 # SA
@@ -16,24 +17,9 @@ min_temperature = 2
 iterations_per_temp = 3
 
 def SA_main(df_BOM, df_machine):
-    # Create an initial schedule
     initial_schedule = SA_initial_solution(df_BOM)
-    # print("Initial Schedule:", initial_schedule)
-
-    # Test the revised evaluation function with machine availability
     initial_makespan, initial_usage = SA_calculate_makespan(initial_schedule, df_BOM, df_machine)
-    # print("Initial Makespan with Machine Availability:", initial_makespan)
-
-    # Run the simulated annealing algorithm
     best_schedule, best_makespan = simulated_annealing(df_BOM, df_machine, initial_schedule, initial_temperature, cooling_rate, min_temperature, iterations_per_temp)
-    # print("Best Schedule:", best_schedule)
-    # print("Best Makespan:", best_makespan)
-
-    # Generate the Gantt chart for the best schedule
-    # SA_generate_detailed_gantt_chart(best_schedule, df_BOM, best_makespan, df_machine)
-    # SA_generate_beautified_gantt_chart(best_schedule, df_BOM, df_machine)
-
-    # Export the best schedule to CSV
     df = SA_format_schedule(best_schedule, df_BOM, df_machine)
     return df, best_makespan
 
@@ -53,7 +39,7 @@ def SA_initial_solution(df_BOM):
 def SA_calculate_makespan(schedule, df_BOM, df_machine):
     end_times = {}
     machine_availability = {
-        workcenter: {machine: [0] * df_machine.loc[df_machine['workcenter'] == workcenter, machine].values[0]
+        workcenter: {machine: [0] * int(df_machine.loc[df_machine['workcenter'] == workcenter, machine].values[0])
                      for machine in df_machine.columns if machine != 'workcenter'}
         for workcenter in df_machine['workcenter']
     }
@@ -162,13 +148,11 @@ def SA_format_schedule(schedule, df_BOM, df_machine):
                     'MachineIdx': machine_idx + 1
                 })
 
-
-
     # Add unused machines information
     for wc in df_machine['workcenter']:
         for machine in df_machine.columns:
             if machine != 'workcenter':
-                num_machines = df_machine.loc[df_machine['workcenter'] == wc, machine].values[0]
+                num_machines = int(df_machine.loc[df_machine['workcenter'] == wc, machine].values[0])
                 for idx in range(num_machines):
                     if (wc, machine, idx) not in used_machines:
                         export_data.append({
@@ -184,8 +168,9 @@ def SA_format_schedule(schedule, df_BOM, df_machine):
 
 
 def execute_SA_schedule(df_bom, df_workcentre): 
-    df_scheduled, best_makespan = SA_main(df_bom, df_workcentre)
     scheduled_csv_path = "static//files//scheduled.csv"
+    df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
+    df_scheduled, best_makespan = SA_main(df_bom, df_workcentre)
     df_scheduled.to_csv(scheduled_csv_path, index=False)
     
     return scheduled_csv_path
