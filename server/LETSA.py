@@ -1,15 +1,16 @@
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
 import random
-# import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import time
 import ast
 import heapq
-# import matplotlib.patches as mpatches
-# import matplotlib
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 # =====================================================================================
 # CLASS DEFINITIONS
@@ -96,7 +97,7 @@ def load_factory(df_machine):
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
         dict_machines = {}
-        for machine in (df_machine.columns[1:]): 
+        for machine in (df_machine.columns[2:]): 
             dict_machines[machine] = [[] for _ in range(row[machine])]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
@@ -349,3 +350,19 @@ def LETSA_schedule_operations(operations, factory):
         
     return scheduled_operations
 
+def execute_LETSA_schedule(df_bom, df_workcentre):
+    try: 
+        logger.info("Starting the LETSA algorithm")
+        df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
+
+        operations = load_operations(df_bom)
+        factory = load_factory(df_workcentre)
+        LETSA_scheduled_operations = LETSA_schedule_operations(operations, factory)
+        df_scheduled = format_schedule(LETSA_scheduled_operations, factory)
+
+        scheduled_csv_path = "static//files//scheduled.csv"
+        df_scheduled.to_csv(scheduled_csv_path, index=False)
+
+    except Exception as e:
+        logger.error(f"Error in EDD scheduling process: {str(e)}")
+        raise

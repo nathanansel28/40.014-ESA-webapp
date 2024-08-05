@@ -1,15 +1,11 @@
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
 import random
-# import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import time
 import ast
 import heapq
-# import matplotlib.patches as mpatches
-# import matplotlib
 
 # =====================================================================================
 # CLASS DEFINITIONS
@@ -96,7 +92,7 @@ def load_factory(df_machine):
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
         dict_machines = {}
-        for machine in (df_machine.columns[1:]): 
+        for machine in (df_machine.columns[2:]): 
             dict_machines[machine] = [[] for _ in range(row[machine])]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
@@ -318,3 +314,12 @@ def LR_schedule_operations(operations, factory):
     
     return (scheduled_operations, lower_bound)
 
+
+def execute_LR_schedule(df_bom, df_workcentre): 
+    operations = load_operations(df_bom, LR=True)
+    factory = load_factory(df_workcentre)
+    LR_scheduled_operations, LR_lower_bound = LR_schedule_operations(operations, factory)
+    df_scheduled = format_schedule(LR_scheduled_operations)
+    scheduled_csv_path = "static//files//scheduled.csv"
+    df_scheduled.to_csv(scheduled_csv_path, index=False)
+    return scheduled_csv_path

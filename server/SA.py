@@ -1,15 +1,11 @@
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
 import random
-# import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import time
 import ast
 import heapq
-# import matplotlib.patches as mpatches
-# import matplotlib
 
 # =====================================================================================
 # SA
@@ -186,3 +182,10 @@ def SA_format_schedule(schedule, df_BOM, df_machine):
     
     return pd.DataFrame(export_data)
 
+
+def execute_SA_schedule(df_bom, df_workcentre): 
+    df_scheduled, best_makespan = SA_main(df_bom, df_workcentre)
+    scheduled_csv_path = "static//files//scheduled.csv"
+    df_scheduled.to_csv(scheduled_csv_path, index=False)
+    
+    return scheduled_csv_path

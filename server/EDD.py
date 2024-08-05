@@ -1,18 +1,12 @@
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
 import random
-# import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import time
 import ast
 import heapq
-# import matplotlib.patches as mpatches
-# import matplotlib
 import logging
-
-import pandas as pd
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -113,7 +107,7 @@ def load_operations(df, LR=False):
         predecessor_ops = row['predecessor_operations']
         for predecessor in predecessor_ops:
             operations[predecessor].successor = current_op_id
-    logger.info("Operations loaded successfully.")
+    # logger.info("Operations loaded successfully.")
     return operations
 
 def load_factory(df_machine):
@@ -356,7 +350,7 @@ def EDD_schedule_operations(operations, factory):
 def execute_edd_schedule(df_bom, df_workcentre):
     try:
         logger.info("Starting the EDD scheduling process with provided DataFrames.")
-        print(df_bom)
+        # print(df_bom)
         # Convert the predecessor_operations column
         df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
         print("EDD successfully interpreted df_BOM")
@@ -378,17 +372,17 @@ def execute_edd_schedule(df_bom, df_workcentre):
         EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
         logger.info("EDD scheduling algorithm executed successfully.")
         
-        scheduled_csv_path = "Hello"
         # Format the schedule and save to CSV
         df_scheduled = format_schedule(EDD_scheduled_operations, factory)
         # # logger.info(df_scheduled)
         # # print(df_scheduled)
-        scheduled_csv_path = os.path.join("static/files", "scheduled.csv")
+        # scheduled_csv_path = os.path.join("static/files", "scheduled.csv")
         scheduled_csv_path = "static//files//scheduled.csv"
         df_scheduled.to_csv(scheduled_csv_path, index=False)
         logger.info(f"Schedule saved successfully to {scheduled_csv_path}.")
         
         return scheduled_csv_path
+
     except Exception as e:
         logger.error(f"Error in EDD scheduling process: {str(e)}")
         raise
