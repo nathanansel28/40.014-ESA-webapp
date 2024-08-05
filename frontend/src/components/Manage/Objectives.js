@@ -6,11 +6,13 @@ import { Button } from 'react-bootstrap';
 const Objectives = () => {
     const[selectedObjective, setSelectedObjective] = useState ('');
     const handleObjectiveSelection = (objective) => {
+        console.log("Objective selected:", objective);
         setSelectedObjective(objective);
     };
     const handleSubmit = async () => {
+        console.log("Submitting objective:", selectedObjective);
         try {
-          const response = await fetch('/api/submit-objective', {
+          const response = await fetch('http://127.0.0.1:8000/api/submit-objective', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
