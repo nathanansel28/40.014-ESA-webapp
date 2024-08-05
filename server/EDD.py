@@ -11,19 +11,12 @@ import heapq
 import matplotlib.patches as mpatches
 import matplotlib.patches as mpatches
 import matplotlib
+import logging
 
 import pandas as pd
 
-import globals  # Import the globals module
-
-def convert_to_dataframe(csv_data):
-    """
-    Convert parsed CSV data to a pandas DataFrame.
-
-    :param csv_data: List of dictionaries containing CSV data.
-    :return: pandas DataFrame
-    """
-    return pd.DataFrame(csv_data)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # =====================================================================================
 # CLASS DEFINITIONS
@@ -69,6 +62,7 @@ class Operation:
         return not self.__lt__(other)
     
 def safe_literal_eval(val):
+
     try:
         if pd.notnull(val):
             # Evaluate the string to a Python object
@@ -120,18 +114,23 @@ def load_operations(df, LR=False):
         predecessor_ops = row['predecessor_operations']
         for predecessor in predecessor_ops:
             operations[predecessor].successor = current_op_id
-    
+    logger.info("Operations loaded successfully.")
     return operations
 
 def load_factory(df_machine):
+    print(df_machine)
+    df_machine = df_machine.dropna(how='all')
+    print("")
+    print(df_machine)
     factory = {}
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
         dict_machines = {}
-        for machine in (df_machine.columns[1:]): 
+        for machine in (df_machine.columns[2:]): 
             dict_machines[machine] = [[] for _ in range(int(row[machine]))]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
+    logger.info("Factory loaded successfully.")
     return factory 
 
 def calculate_makespan(factory, scheduled_operations=None):
@@ -182,7 +181,7 @@ def format_schedule(scheduled_operations, factory):
                     }
                     new_row_df = pd.DataFrame([new_row])
                     df_schedule = pd.concat([df_schedule, new_row_df], ignore_index=True)
-
+    logger.info("Schedule formatted successfully.")
     return df_schedule
 
 # =====================================================================================
@@ -366,22 +365,59 @@ def EDD_schedule_operations(operations, factory):
         #             # print(f"Operation {op_id} with no remaining dependencies added to the queue")
 
         # print("")
+
+def execute_edd_schedule(df_bom, df_workcentre):
+    try:
+        logger.info("Starting the EDD scheduling process with provided DataFrames.")
+        print(df_bom)
+        # Convert the predecessor_operations column
+        df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
+        # for i in range(len(df_bom)):
+        #     df_bom.at[i, 'predecessor_operations'] = ast.literal_eval(df_bom.at[i, 'predecessor_operations'])
+
+        print(df_bom['predecessor_operations'].dtype)
+        logger.info("Converted predecessor_operations in BOM DataFrame.")
+        
+        # Load operations
+        operations = load_operations(df_bom)
+        logger.info("Operations loaded successfully.")
+        
+        # Load factory
+        factory = load_factory(df_workcentre)
+        logger.info("Factory loaded successfully.")
+        
+        # Run the EDD scheduling algorithm
+        EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
+        logger.info("EDD scheduling algorithm executed successfully.")
+        
+        # Format the schedule and save to CSV
+        df_scheduled = format_schedule(EDD_scheduled_operations, factory)
+        print(df_scheduled)
+        # # scheduled_csv_path = os.path.join("static/files", "scheduled.csv")
+        # scheduled_csv_path = "static//files//scheduled.csv"
+        # df_scheduled.to_csv(scheduled_csv_path, index=False)
+        # logger.info(f"Schedule saved successfully to {scheduled_csv_path}.")
+        
+        return scheduled_csv_path
+    except Exception as e:
+        logger.error(f"Error in EDD scheduling process: {str(e)}")
+        raise
+
     return scheduled_operations
 
 
-import pandas as pd
 
 # Your existing imports and setup
 
 # Check if the column exists
-if 'predecessor_operations' in globals.df_bom.columns:
-    print(globals.df_bom["predecessor_operations"].dtype)
-else:
-    print("Column 'predecessor_operations' not found in DataFrame. Available columns:", globals.df_bom.columns)
+# if 'predecessor_operations' in df_bom.columns:
+#     print(globals.df_bom["predecessor_operations"].dtype)
+# else:
+#     print("Column 'predecessor_operations' not found in DataFrame. Available columns:", globals.df_bom.columns)
 
-# print(globals.df_bom["predecessor_operations"].dtype)
-# globals.df_bom['predecessor_operations'] = globals.df_bom['predecessor_operations'].apply(safe_literal_eval)
-# # df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
+# print(df_bom["predecessor_operations"].dtype)
+# df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
+# df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
 # print(globals.df_bom)
 # operations = load_operations(df_bom)
 # factory = load_factory(df_workcentre)
