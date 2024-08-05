@@ -368,10 +368,21 @@ def EDD_schedule_operations(operations, factory):
         # print("")
     return scheduled_operations
 
-print(globals.df_bom["predecessor_operations"].dtype)
-globals.df_bom['predecessor_operations'] = globals.df_bom['predecessor_operations'].apply(safe_literal_eval)
-# df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
-print(globals.df_bom)
+
+import pandas as pd
+
+# Your existing imports and setup
+
+# Check if the column exists
+if 'predecessor_operations' in globals.df_bom.columns:
+    print(globals.df_bom["predecessor_operations"].dtype)
+else:
+    print("Column 'predecessor_operations' not found in DataFrame. Available columns:", globals.df_bom.columns)
+
+# print(globals.df_bom["predecessor_operations"].dtype)
+# globals.df_bom['predecessor_operations'] = globals.df_bom['predecessor_operations'].apply(safe_literal_eval)
+# # df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
+# print(globals.df_bom)
 # operations = load_operations(df_bom)
 # factory = load_factory(df_workcentre)
 # EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
