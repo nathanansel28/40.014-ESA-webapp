@@ -7,6 +7,7 @@ import time
 import ast
 import heapq
 import logging
+from EDD import safe_literal_eval
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -98,8 +99,7 @@ def load_factory(df_machine):
         workcenter = row['workcenter']
         dict_machines = {}
         for machine in (df_machine.columns[2:]): 
-            dict_machines[machine] = [[] for _ in range(row[machine])]
-        # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
+            dict_machines[machine] = [[] for _ in range(int(row[machine]))]
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
     return factory 
 
@@ -352,6 +352,7 @@ def LETSA_schedule_operations(operations, factory):
 
 def execute_LETSA_schedule(df_bom, df_workcentre):
     try: 
+        scheduled_csv_path = "static//files//scheduled.csv"
         logger.info("Starting the LETSA algorithm")
         df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
 
@@ -359,10 +360,10 @@ def execute_LETSA_schedule(df_bom, df_workcentre):
         factory = load_factory(df_workcentre)
         LETSA_scheduled_operations = LETSA_schedule_operations(operations, factory)
         df_scheduled = format_schedule(LETSA_scheduled_operations, factory)
-
-        scheduled_csv_path = "static//files//scheduled.csv"
+        logger.info(df_scheduled)
         df_scheduled.to_csv(scheduled_csv_path, index=False)
-
+        return scheduled_csv_path
     except Exception as e:
-        logger.error(f"Error in EDD scheduling process: {str(e)}")
+        logger.error(f"Error in LETSA scheduling process: {str(e)}")
         raise
+
