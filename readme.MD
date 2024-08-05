@@ -1,4 +1,6 @@
 # Gantt: An Operation Scheduling Web App
+Access a preview of our project here (view-only): https://nathanansel28.github.io/40.014-ESA-webapp/
+
 This project was built using these technologies.
 - React.js
 - Node.js

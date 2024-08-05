@@ -12,7 +12,7 @@ const Instructions = () => (
           <Card.Body>
             <Card.Title style={{ textAlign: 'center', fontWeight: 'bold' }}>✨Instructions for Uploading CSV Files✨ </Card.Title>
             <Card.Text>
-            <h5 style={{textAlign:'center'}}>Step 1: Prepare your CSV File 📝</h5>
+            <h5 style={{textAlign:'center', marginTop:"60px"}}>Step 1: Prepare your CSV File 📝</h5>
               <p>Two CSV files are needed, one containing the Bills-of-Material information, and the other containing the workcenter information.</p>
               <p style={{textAlign:'center'}}>Ensure your CSV file follows the format provided in the sample file:</p>
               <p style={{textAlign:'center'}}>Bills-of-Material CSV:</p>
@@ -85,7 +85,7 @@ const Instructions = () => (
                 <li><strong>Machine</strong>: The identifier of the machine on which the operation will run.</li>
                 <li><strong>Workcenter</strong>: Workcenter for each operation.</li>
                 <li><strong>Due Date</strong>: Due date for the job.</li>
-                <li><strong>End Product</strong>: The number of end product being produced. End product = 1 if the operation produces an end product, and 0 otehrwise.</li>
+                <li><strong>End Product</strong>: The number of end product being produced. End product = 1 if the operation produces an end product, and 0 otherwise.</li>
               </ul>
               <p style={{textAlign:'center'}}>Workcenters CSV:</p>
               {/* <img src={SampleImage} alt="Sample CSV Format" style={{ width: '70%', marginBottom: '20px' }} /> */}
@@ -144,7 +144,7 @@ const Instructions = () => (
                 <li><strong>M1, M2, ...</strong> : Number of each machine in the respective workcenter.</li>
 
               </ul>
-              <h5 style={{textAlign:'center'}}>Step 2: Upload the CSV File 📤</h5>
+              <h5 style={{textAlign:'center', marginTop:"60px"}}>Step 2: Upload the CSV File 📤</h5>
               <ul>
                 <li>Navigate to the upload section on the platform.</li>
                 <li>Click on the 'Upload file' button.</li>
@@ -152,7 +152,7 @@ const Instructions = () => (
                 <li>Select the CSV file from your device that matches the format described above.</li>
                 <li>Ensure that the right CSV file is uploaded at the correct section (BOM CSV on the left, Workcenter CSV on the right).</li>
               </ul>
-              <h5 style={{textAlign:'center'}}>Step 3: Select your heuristic approach👆</h5>
+              <h5 style={{textAlign:'center', marginTop:"60px"}}>Step 3: Select your heuristic approach👆</h5>
               <ul>
                 <li>After successfully uploading your CSV file you will be prompted to choose the algorithm you wish to utilise. The heuristic algorithms include:</li>
                 <ul>
@@ -167,9 +167,9 @@ const Instructions = () => (
                   <li>Please do note that all four algorithms are to be used to compare against each other.</li>
                 </ul>
               </ul>
-              <h5 style={{textAlign:'center'}}>Step 4: Generating Gantt Chart ⟳</h5>
+              <h5 style={{textAlign:'center', marginTop:"60px"}}>Step 4: Generating Gantt Chart ⟳</h5>
               <p>Once your CSV file is uploaded and your heuristc algorithm is selected, the Gantt Chart will be automatically generated. Please review the Gantt Chart as it may makes mistake.</p>
-              <h5 style={{textAlign:'center'}}>💡 Additional Notes:</h5>
+              <h5 style={{textAlign:'center', marginTop:"60px"}}>💡 Additional Notes:</h5>
               <ul>
                 <li>Ensure all variables are in the correct unit of measure (i.e. Number and Text).</li>
                 <li>Double-check for any missing or incorrect data before uploading.</li>

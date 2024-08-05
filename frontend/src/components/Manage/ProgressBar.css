@@ -1,10 +1,10 @@
 /* General styles for the stepper container */
 .stepper-container {
     position: fixed;
-    /* top: 20; */
+    top: 78px;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.342); /* Black background with 70% transparency */
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with 70% transparency */
     padding: 10px 0;
     z-index: 1000; /* Ensure it stays on top of other elements */
 }
