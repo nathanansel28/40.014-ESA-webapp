@@ -23,3 +23,26 @@
     padding-top: 100px;
   }
   
+  .section-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px; /* Gap between sections */
+  }
+  
+   .table-container {
+    max-height: 600px; /* Adjust the height as needed */
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .custom-table {
+    background-color: white;
+  }
+  

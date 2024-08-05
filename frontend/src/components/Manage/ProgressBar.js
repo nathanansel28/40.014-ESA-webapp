@@ -6,6 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 import UploadFile from './UploadFile';
 import Objectives from './Objectives';
 import { Gantt } from 'gantt-task-react';
+import './ProgressBar.css';
 
 const steps = [
   'Prepare Your CSV File',
@@ -54,8 +55,8 @@ const stepComponents = [
     }, [sectionRefs]);
   
     return (
-      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px' }}>
-        <Box sx={{ width: '100%', position: 'fixed' }}>
+      <div class='stepper-container' >
+        <Box sx={{ width: '100%' }}>
           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label, index) => (
               <Step key={label}>
@@ -68,7 +69,7 @@ const stepComponents = [
                       color: 'white',
                     },
                     '& .MuiStepIcon-root': {
-                      color: 'blue', // Change step icon color
+                      color: 'purple', // Change step icon color
                     },
                     '& .MuiStepLabel-label.Mui-completed': {
                       color: 'white',

@@ -4,6 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { InboxOutlined } from '@ant-design/icons';
 import confetti from 'canvas-confetti';
+import './UploadFile.css'
 
 function generateConfetti() {
   confetti({
@@ -16,7 +17,7 @@ function generateConfetti() {
 
 const { Dragger } = Upload;
 
-const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes }) => {
+const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes, label }) => {
   const handleUpload = async ({ file }) => {
     const formData = new FormData();
     formData.append('file', file);
@@ -39,18 +40,17 @@ const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes }) => {
   };
 
   return (
-    <Dragger
-      customRequest={handleUpload}
-      showUploadList={false}
-      accept={acceptedFileTypes}
-    >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <p className="ant-upload-drag-icon" style={{ margin: '0 10px 0 0' }}>
-          <InboxOutlined style={{ fontSize: '24px' }} />
-        </p>
-        <p className="ant-upload-text">Click or drag file to this area to upload</p>
-      </div>
-    </Dragger>
+    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+      <h5>{label}</h5>
+      <Dragger customRequest={handleUpload} showUploadList={false} accept={acceptedFileTypes}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <p className="ant-upload-drag-icon" style={{ margin: '0 10px 0 0' }}>
+            <InboxOutlined style={{ fontSize: '24px' }} />
+          </p>
+          <p className="ant-upload-text">Click or drag file to this area to upload</p>
+        </div>
+      </Dragger>
+    </div>
   );
 };
 

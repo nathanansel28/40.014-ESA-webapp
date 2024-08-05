@@ -21,10 +21,11 @@ function Home2() {
               <br />
               <br />
               Our solution focuses on&nbsp;
-                <b className="purple">minimizing makespan, work in process, and inventory</b> 
-                {""}, ultimately{" "}
+                <b className="purple">minimizing makespan, total holding costs, or algorithmic runtime</b> 
+                {""}, ultimately producing a schedule that can{" "}
                 <b className="purple">
-                    {" "}enhancing productivity and reducing operational inefficiencies.{" "}
+                {" "} match the needs of all businesses, and enhance their productivity.{" "}
+                    {/* {" "}enhancing productivity and reducing operational inefficiencies.{" "} */}
                 </b>
               <br />
             </p>
