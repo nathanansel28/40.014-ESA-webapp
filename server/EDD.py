@@ -111,15 +111,12 @@ def load_operations(df, LR=False):
     return operations
 
 def load_factory(df_machine):
-    # print(df_machine)
     # df_machine = df_machine.dropna(how='all')
-    # print("")
-    # print(df_machine)
     factory = {}
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
         dict_machines = {}
-        for machine in (df_machine.columns[2:]): 
+        for machine in (df_machine.columns[1:]): 
             dict_machines[machine] = [[] for _ in range(int(row[machine]))]
         # factory.append(WorkCenter(workcenter, dict_machines=dict_machines))
         factory[workcenter] = WorkCenter(workcenter, dict_machines=dict_machines)
