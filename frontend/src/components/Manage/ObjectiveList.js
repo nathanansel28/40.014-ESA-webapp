@@ -22,11 +22,11 @@ const ObjectiveList = ({
                 Earliest Due Date (EDD)
             </label>
             <label className="objective-option">
-                <input type="radio" name="objective" value="SA" />
+                <input type="radio" name="objective" value="SA" onChange={handleObjectiveChange}/>
                 Simulated Annealing (SA)
             </label>
             <label className="objective-option">
-                <input type="radio" name="objective" value="SA" />
+                <input type="radio" name="objective" value="SA" onChange={handleObjectiveChange}/>
                 Lagrangian Relaxation (LR)
             </label>
         </div>

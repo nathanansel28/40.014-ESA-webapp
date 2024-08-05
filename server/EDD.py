@@ -1,16 +1,15 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import random
-import matplotlib.dates as mdates
+# import matplotlib.dates as mdates
 from datetime import datetime
 import os
 import time
 import ast
 import heapq
-import matplotlib.patches as mpatches
-import matplotlib.patches as mpatches
-import matplotlib
+# import matplotlib.patches as mpatches
+# import matplotlib
 import logging
 
 import pandas as pd
@@ -118,10 +117,10 @@ def load_operations(df, LR=False):
     return operations
 
 def load_factory(df_machine):
-    print(df_machine)
-    df_machine = df_machine.dropna(how='all')
-    print("")
-    print(df_machine)
+    # print(df_machine)
+    # df_machine = df_machine.dropna(how='all')
+    # print("")
+    # print(df_machine)
     factory = {}
     for idx, row in df_machine.iterrows():
         workcenter = row['workcenter']
@@ -351,20 +350,8 @@ def EDD_schedule_operations(operations, factory):
                                 operations[op_id].processing_time, op_id))
                 # print(f"Pushed {op_id} into Q")
 
+    return scheduled_operations
 
-
-        # for op_id, op in operations.items():
-        #     if not op.scheduled and op_id in unscheduled_dependencies:
-        #         # if the operation has not been scheduled, and is an unscheduled dependency
-        #         # for each of the predecessors of this operation
-        #         for comp_id in op.predecessors:
-        #             if operations[comp_id].scheduled:
-        #                 unscheduled_dependencies[op_id] -= 1
-        #         if unscheduled_dependencies[op_id] == 0:
-        #             heapq.heappush(Q, (op.due_date if op.due_date is not None else float('inf'), op.processing_time, op_id))
-        #             # print(f"Operation {op_id} with no remaining dependencies added to the queue")
-
-        # print("")
 
 def execute_edd_schedule(df_bom, df_workcentre):
     try:
@@ -372,6 +359,7 @@ def execute_edd_schedule(df_bom, df_workcentre):
         print(df_bom)
         # Convert the predecessor_operations column
         df_bom['predecessor_operations'] = df_bom['predecessor_operations'].apply(safe_literal_eval)
+        print("EDD successfully interpreted df_BOM")
         # for i in range(len(df_bom)):
         #     df_bom.at[i, 'predecessor_operations'] = ast.literal_eval(df_bom.at[i, 'predecessor_operations'])
 
@@ -390,20 +378,22 @@ def execute_edd_schedule(df_bom, df_workcentre):
         EDD_scheduled_operations = EDD_schedule_operations(operations, factory)
         logger.info("EDD scheduling algorithm executed successfully.")
         
+        scheduled_csv_path = "Hello"
         # Format the schedule and save to CSV
         df_scheduled = format_schedule(EDD_scheduled_operations, factory)
-        print(df_scheduled)
-        # # scheduled_csv_path = os.path.join("static/files", "scheduled.csv")
-        # scheduled_csv_path = "static//files//scheduled.csv"
-        # df_scheduled.to_csv(scheduled_csv_path, index=False)
-        # logger.info(f"Schedule saved successfully to {scheduled_csv_path}.")
+        # # logger.info(df_scheduled)
+        # # print(df_scheduled)
+        scheduled_csv_path = os.path.join("static/files", "scheduled.csv")
+        scheduled_csv_path = "static//files//scheduled.csv"
+        df_scheduled.to_csv(scheduled_csv_path, index=False)
+        logger.info(f"Schedule saved successfully to {scheduled_csv_path}.")
         
         return scheduled_csv_path
     except Exception as e:
         logger.error(f"Error in EDD scheduling process: {str(e)}")
         raise
 
-    return scheduled_operations
+    # return scheduled_operations
 
 
 
