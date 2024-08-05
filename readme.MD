@@ -1,6 +1,5 @@
-gy﻿# Manufacturing Gantt App (Karen, Norah, Peck Yeok)
+# Gantt: An Operation Scheduling Web App
 This project was built using these technologies.
-
 - React.js
 - Node.js
 - AntDesign
@@ -9,19 +8,16 @@ This project was built using these technologies.
 - Google-React-Charts
 
 ## Getting Started
-
 Clone down this repository. You will need `node.js` and `git` installed globally on your machine. You would also need `Uvicorn`,  `FastApi` and  `Pandas` module installed.
-
 In the event you need to download any of the above three modules, do:
 1.  `pip install pandas` and/or
 2.  `pip install fastapi` and/or
 3.  `pip install uvicorn` 
 
-## 🛠 Installation and Setup Instructions
+# 🛠 Installation and Setup Instructions
+There are two parts to this: back end and front end. Hence, you will need to run two different terminals to ensure that this website works!
 
-There are three parts to this: Front-end,  Back-end (1) and Back-end (2), hence, you will need to run three different terminals to ensure that this website works!
-
-## Back End Part 1
+## Back End 
 
 1. Open a new terminal, ensure that your directory is in the server folder (do `cd server`)
 
@@ -31,12 +27,6 @@ There are three parts to this: Front-end,  Back-end (1) and Back-end (2), hence,
 
 Uvicorn should be running on [http://127.0.0.1:8000]
 
-## Back End Part 2
-
-1. Open a new terminal, ensure that your directory is in the server folder (do `cd server`)
-2. In the server directory, run `run flask`
-
-Flask should be running on [http://127.0.0.1:5000]
 
 ## Front End
 
@@ -56,3 +46,12 @@ Open the project folder and Navigate to `/src/components/`. <br/>
 You will find all the components used and you can edit your information accordingly.
 
 Uploaded files would be in the `static\files` folder of backend server.
+
+# Contributions
+Nathan Ansel
+Lee Peck Yeok
+Georgia Karen Lau
+Kong Le'ann Norah
+Oon Eu Kuan Eugene
+Tan Chong Hao
+Long Yan Ting
