@@ -12,8 +12,6 @@ from EDD import execute_edd_schedule, safe_literal_eval
 
 
 app = FastAPI()
-
-# Mount the static files directory
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 logging.basicConfig(level=logging.INFO)
@@ -28,7 +26,6 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-# Ensure the upload directory exists
 UPLOAD_DIRECTORY = "static/files"
 if not os.path.exists(UPLOAD_DIRECTORY):
     os.makedirs(UPLOAD_DIRECTORY)
@@ -81,9 +78,7 @@ async def convert_to_dataframe_workcentre(data: List[dict]):
         logger.info(f"Received Workcentre data content: {data}")
         logger.info(f"Converted Workcentre DataFrame type: {type(df_workcentre)}")
         logger.info(f"Converted Workcentre DataFrame head: \n{df_workcentre.head()}")
-
         df_workcentre.to_csv(os.path.join(UPLOAD_DIRECTORY, "converted_workcentre.csv"), index=False)
-
         return {"message": "Workcentre data successfully converted to DataFrame"}
     except Exception as e:
         logger.error(f"Error converting Workcentre data to DataFrame: {str(e)}")
@@ -93,14 +88,12 @@ async def convert_to_dataframe_workcentre(data: List[dict]):
 async def schedule_operations():
     logger.info("Running schedule_operations")
     try:
-        logger.info("Starting the scheduling process.")
-
-        # Load BOM DataFrame
+        # logger.info("Starting the scheduling process.")
         bom_path = os.path.join(UPLOAD_DIRECTORY, "converted_bom.csv")
         if os.path.exists(bom_path):
             df_bom = pd.read_csv(bom_path)
             df_bom = df_bom.dropna(subset=['operation'])
-            logger.info("BOM DataFrame loaded successfully.")
+            # logger.info("BOM DataFrame loaded successfully.")
         else:
             logger.error(f"BOM file not found at path: {bom_path}")
             return JSONResponse(status_code=404, content={"message": "BOM file not found"})
@@ -110,7 +103,7 @@ async def schedule_operations():
         if os.path.exists(workcentre_path):
             df_workcentre = pd.read_csv(workcentre_path)
             df_workcentre = df_workcentre.dropna(how='all')
-            logger.info("Workcentre DataFrame loaded successfully.")
+            # logger.info("Workcentre DataFrame loaded successfully.")
         else:
             logger.error(f"Workcentre file not found at path: {workcentre_path}")
             return JSONResponse(status_code=404, content={"message": "Workcentre file not found"})
@@ -140,6 +133,7 @@ async def submit_objective(objective_submission: ObjectiveSubmission):
         response = await schedule_operations()
         logger.info("Success")
         return response
+    elif 
     else:
         logger.info("Error at submit objective at main.py")
         logger.info("Objective not handled: %s", objective_submission.selectedObjective)
