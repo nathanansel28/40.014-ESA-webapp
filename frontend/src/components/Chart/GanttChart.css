@@ -1,12 +1,12 @@
 .gantt-chart-container {
   padding: 10px;
-  background-color: #ffffff;
+  background-color: #ece4ffb7;
   color: white;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-top: 20px;
   width: 100%; /* Ensures container takes full width */
   min-height: 300px; /* Ensures a minimum height to avoid cutting */
