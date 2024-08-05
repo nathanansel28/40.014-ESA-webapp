@@ -80,7 +80,7 @@ const GanttChart = () => {
     }
 
     // Poll for changes to the CSV file
-    const intervalId = setInterval(fetchCsv, 300000); // Fetch new data every 5 minutes (300,000 milliseconds)
+    const intervalId = setInterval(fetchCsv, 10000); // Fetch new data every 5 minutes (300,000 milliseconds)
 
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, [dataUrl]);
