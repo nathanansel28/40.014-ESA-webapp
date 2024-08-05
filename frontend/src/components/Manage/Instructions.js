@@ -156,10 +156,15 @@ const Instructions = () => (
               <ul>
                 <li>After successfully uploading your CSV file you will be prompted to choose the algorithm you wish to utilise. The heuristic algorithms include:</li>
                 <ul>
-                  <li>Lead Time Evaluation and Scheduling Algorithm (LETSA): Minimises makespan, algorithmic runtime, and WIP cost</li>
-                  <li>Earliest Due Date (EDD): Minimises algorithmic runtime and number of tardy jobs</li>
-                  <li>Lagrangian Relaxation (LR): Minimise algorithmic runtime and provides lower bound of the optimality</li>
-                  <li>Simulated Annealing (SA): Maximises solution quality</li>
+                  <li><strong>Lead Time Evaluation and Scheduling Algorithm (LETSA):</strong> Minimises makespan, algorithmic runtime, and WIP cost.</li>
+                  <li><strong>Earliest Due Date (EDD):</strong> Minimises algorithmic runtime and number of tardy jobs.</li>
+                  <li><strong>Lagrangian Relaxation (LR):</strong> Minimise algorithmic runtime and provides lower bound of the optimality.</li>
+                  <li><strong>Simulated Annealing (SA):</strong> Maximises solution quality.</li>
+                </ul>
+                <li>Extra information for each algorithm:</li>
+                <ul>
+                  <li><strong>LETSA</strong> is the best heuristic algorithm compared to the other three algorithms in terms of computational time, optimal makespan, and optimality gap.</li>
+                  <li>Please do note that all four algorithms are to be used to compare against each other.</li>
                 </ul>
               </ul>
               <h5 style={{textAlign:'center'}}>Step 4: Generating Gantt Chart ⟳</h5>

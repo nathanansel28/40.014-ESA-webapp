@@ -24,31 +24,34 @@ const GanttChart = () => {
           header: true,
           skipEmptyLines: true,
           complete: (results) => {
+            const startDate = new Date('2024-01-01').getTime(); // Start date as January 1, 2024
+            console.log('Start Date:', new Date(startDate));
             const groupedData = results.data.reduce((acc, row) => {
               const group = `${row.WorkCenter} ${row.Machine} (${row.MachineIdx})`;
               if (!acc[group]) {
                 acc[group] = [];
               }
+              const startTime = new Date(startDate + (row.Start * 24 * 60 * 60 * 1000));
+              const endTime = new Date(startDate + (row.End * 24 * 60 * 60 * 1000));
+              console.log(`Operation: ${row.Operation}, Start: ${startTime}, End: ${endTime}`);
+  
               acc[group].push({
                 label: row.Operation,
                 data: [
                   {
-                    timeRange: [
-                      new Date(row.Start * 24 * 60 * 60 * 1000),
-                      new Date(row.End * 24 * 60 * 60 * 1000),
-                    ],
+                    timeRange: [startTime, endTime],
                     val: row.PercentCompletion,
                   },
                 ],
               });
               return acc;
             }, {});
-
+  
             const formattedChartData = Object.keys(groupedData).map((group) => ({
               group,
               data: groupedData[group],
             }));
-
+  
             setChartData(formattedChartData);
             localStorage.setItem('chartData', JSON.stringify(formattedChartData));
             setLoading(false);
@@ -65,6 +68,7 @@ const GanttChart = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     const storedChartData = localStorage.getItem('chartData');
