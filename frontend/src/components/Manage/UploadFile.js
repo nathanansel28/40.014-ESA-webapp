@@ -18,7 +18,7 @@ function generateConfetti() {
 
 const { Dragger } = Upload;
 
-const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes }) => {
+const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes, label }) => {
   const handleUpload = async ({ file }) => {
     const formData = new FormData();
     formData.append('file', file);
@@ -40,11 +40,16 @@ const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes }) => {
   };
 
   return (
+    <div style={{textAlign:'center', marginBottom: '20px'}}>
+      <h5>{label}</h5>
+    
     <Dragger
       customRequest={handleUpload}
       showUploadList={false}
       accept={acceptedFileTypes}
     >
+
+
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <p className="ant-upload-drag-icon" style={{ margin: '0 10px 0 0' }}>
           <InboxOutlined style={{ fontSize: '24px' }} />
@@ -52,6 +57,7 @@ const UploadFile = ({ onUploadSuccess, endpoint, acceptedFileTypes }) => {
         <p className="ant-upload-text">Click or drag file to this area to upload</p>
       </div>
     </Dragger>
+    </div>
   );
 };
 

@@ -17,6 +17,7 @@
   table {
     border-collapse: separate; /* Ensure borders do not collapse */
     border-spacing: 10px; /* Add spacing between columns */
+    border-radius: 10px;
     width: 100%; /* Make table take full width */
     max-width: 800px; /* Optional: set a max-width */
     margin: 20px auto; /* Center the table and add top/bottom margin */
@@ -38,8 +39,9 @@
   }
   
   /* Additional styles to ensure content is properly spaced */
-  .instructions-container p {
+  .instructions-container {
     margin: 0 0 10px;
+    border-radius: 10px;
     line-height: 1.5;
   }
   

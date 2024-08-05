@@ -108,6 +108,7 @@ const Instructions = () => (
                 <li>Ensure all variables are in the correct unit of measure (i.e. Number and Text).</li>
                 <li>Double-check for any missing or incorrect data before uploading.</li>
                 <li>Ensure that only last row contains the 'due date' and 'end product' information.</li>
+                <li>This CSV file will be your "df_BOM" file</li>
               </ul>
             </Card.Text>
           </Card.Body>
