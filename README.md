@@ -1,4 +1,4 @@
-# Gantt: An Operation Scheduling Web App
+# Gantt: An Operations Scheduling Web App
 Access a preview of our project here (read-only): https://nathanansel28.github.io/40.014-ESA-webapp/
 
 This project was built using these technologies.
