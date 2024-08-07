@@ -67,4 +67,4 @@ Georgia Karen Lau \
 Kong Le'ann Norah \
 Oon Eu Kuan Eugene \
 Tan Chong Hao \
-Long Yan Ting \
+Long Yan Ting 
