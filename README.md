@@ -7,14 +7,10 @@ This project was built using these technologies.
 - AntDesign
 - VsCode
 - MUI
-- Google-React-Charts
+- timelines-harts
 
 ## Getting Started
 Clone down this repository. You will need `node.js` and `git` installed globally on your machine. You would also need `Uvicorn`,  `FastApi` and  `Pandas` module installed.
-In the event you need to download any of the above three modules, do:
-1.  `pip install pandas` and/or
-2.  `pip install fastapi` and/or
-3.  `pip install uvicorn` 
 
 # 🛠 Installation and Setup Instructions
 There are two parts to this: back end and front end. Hence, you will need to run two different terminals to ensure that this website works!
@@ -27,8 +23,20 @@ There are two parts to this: back end and front end. Hence, you will need to run
 
 3. Virtual env (env) should be created. Run `python -m uvicorn main:app --reload`
 
-Uvicorn should be running on [http://127.0.0.1:8000]
+4. Uvicorn should be running on [http://127.0.0.1:8000]
 
+5. In the event you need to download any of the above three modules, do install the followings in your environment:
+  1. `pip install pandas` and/or
+  2.  `pip install fastapi` and/or
+  3.  `pip install numpy` and/or
+  4.  `pip install uvicorn`
+
+6. If the terminal returns fatal error, do:
+  1. `deactivate`
+  2. `Remove-Item -Recurse -Force .\env`
+  3. `python -m venv env`
+  4. `.\env\Scripts\activate`
+  5. `pip install -r requirements.txt`
 
 ## Front End
 
