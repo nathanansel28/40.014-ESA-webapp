@@ -58,10 +58,10 @@ You will find all the components used and you can edit your information accordin
 Uploaded files would be in the `static\files` folder of backend server.
 
 # Contributions
-Nathan Ansel
-Lee Peck Yeok
-Georgia Karen Lau
-Kong Le'ann Norah
-Oon Eu Kuan Eugene
-Tan Chong Hao
-Long Yan Ting
+Nathan Ansel \
+Lee Peck Yeok \
+Georgia Karen Lau \
+Kong Le'ann Norah \
+Oon Eu Kuan Eugene \
+Tan Chong Hao \
+Long Yan Ting \
