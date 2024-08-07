@@ -1,5 +1,8 @@
-# Gantt: An Operations Scheduling Web App
+# GANTT.: An Operations Scheduling Web App
 Access a preview of our project here (read-only): https://nathanansel28.github.io/40.014-ESA-webapp/
+
+## About GANTT.
+Our web application is designed to help manufacturing companies optimise their assembly line scheduling. By incorporating heuristic methods, we aim to create an intuitive and efficient tool that addresses the complexities of large-scale scheduling. Our solution focuses on minimising makespan, time complexity, WIP cost, and/or number of tardy jobs. Ultimately, producing a schedule that can match the needs of all businesses, and enhance their productivity.
 
 This project was built using these technologies.
 - React.js
