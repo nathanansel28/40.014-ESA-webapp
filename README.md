@@ -7,7 +7,7 @@ This project was built using these technologies.
 - AntDesign
 - VsCode
 - MUI
-- timelines-harts
+- timelines-charts
 
 ## Getting Started
 Clone down this repository. You will need `node.js` and `git` installed globally on your machine. You would also need `Uvicorn`,  `FastApi` and  `Pandas` module installed.
