@@ -1,0 +1,17 @@
+operation,predecessor_operations,processing_time,machine,workcenter,due_date,end_product
+J.1,[],1,M1,WC#3,,
+J.2,['J.1'],1,M1,WC#1,,
+J.3,['J.2'],1,M1,WC#3,,
+J.4,['J.3'],1,M1,WC#3,,
+J.5,['J.4'],1,M1,WC#2,,
+J.6,['J.5'],1,M1,WC#1,,
+J.7,[],3,M1,WC#1,,
+J.8,"['J.6', 'J.7']",1,M1,WC#2,,
+J.9,['J.8'],1,M1,WC#2,,
+J.10,['J.9'],1,M1,WC#1,,
+J.11,['J.10'],1,M1,WC#3,,
+J.12,['J.11'],1,M1,WC#1,,
+J.13,[],1,M1,WC#3,,
+J.14,['J.12'],1,M1,WC#2,,
+J.15,"['J.13', 'J.14']",1,M1,WC#1,8,1
+,,,,,,
